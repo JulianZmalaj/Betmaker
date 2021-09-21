@@ -1,0 +1,234 @@
+:root {
+  --accent: #52a6af;
+  --accent1: #f6ae2d;
+  --accent-bg: #52a6af;
+  --accent-col: #222;
+  --accent-bg-border-1: #6fb5bd;
+  --accent-bg-border-2: #38666a;
+  --accent1-bg: #ffbc42;
+  --accent1-col: #222;
+  --text-shadow: hsla(0, 0%, 0%, 0.25);
+  --headerTop-bg: #3c494e;
+  --headerTop-col: #fff;
+  --headerBottom-bg: #3c494e;
+  --headerBottom-col: #fff;
+  --tableHeader-bg: #3c494e;
+  --tableHeader-col: #fff;
+  --tableSubHeader-bg: #4a5a61;
+  --tableSubHeader-col: #fff;
+  --bg0: #2a373d;
+  --col0: #fff;
+  --borderColor0-1: #1b2225;
+  --borderColor0-2: #42545a;
+  --bg1: #3c494e;
+  --col1: #fff;
+  --borderColor1-1: #42545a;
+  --borderColor1-2: #2b363a;
+  --bg2: #46565d;
+  --col2: #fff;
+  --borderColor2-1: #52636a;
+  --borderColor2-2: #2e393d;
+  --border1BaseBg: #35454d;
+  --border2BaseBg: #242e33;
+  --containerBg: #f8f8f8;
+  --containerCol: #222;
+  --containerBorder: #dedede;
+  --menuLeftBg: #4a4a4a;
+  --menuLeftCol: #fff;
+  --menuLeftBorder: #535353;
+  --subMenuBg: #dbdcdd;
+  --subMenuCol: #222;
+  --subMenuBorder: #d2d3d4;
+  --menuWidth: 45px;
+  --margin: 15px;
+  --success-bg: #38c538;
+  --success-color: #292929;
+  --error-bg: #cd4141;
+  --error-color: white;
+  --baseBg: #2a373d;
+  --backDrop: rgba(0, 0, 0, 0.418);
+  --loader: linear-gradient(to right, #2a373d 2%, #32434a 18%, #2d3b42 33%);
+}
+
+footer {
+  width: 100%;
+  padding: 10px 10px 30px;
+  border-top: 1px var(--borderColor1-1) solid;
+  background: var(--bg1);
+}
+
+.content-m {
+  width: 100%;
+  max-width: 1139px;
+  margin: 0 auto;
+}
+
+footer .wrapper .links-wrapper {
+  display: flex;
+  color: var(--col1);
+  justify-content: center;
+}
+
+footer .wrapper .divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--bg1);
+  border-bottom: 1px solid var(--borderColor1-1);
+  border-top: 1px solid var(--borderColor1-2);
+}
+footer .wrapper .footer-down {
+  overflow: hidden;
+}
+
+footer .wrapper .links-wrapper > .list-container {
+  margin: 20px 10%;
+}
+
+footer .wrapper .links-wrapper > .list-container > h2 {
+  padding-bottom: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: default;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+footer .wrapper .links-wrapper > .list-container > ul > li {
+  cursor: pointer;
+  opacity: 0.6;
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+footer .wrapper .divider-line {
+  width: 100%;
+  height: 2px;
+  background-color: var(--bg1);
+  border-bottom: 1px solid var(--borderColor1-1);
+  border-top: 1px solid var(--borderColor1-2);
+}
+
+footer .wrapper .footer-down {
+  overflow: hidden;
+}
+
+footer .wrapper .row-container {
+  margin: 20px 0;
+}
+
+footer .wrapper .footer-socials {
+  text-align: center;
+}
+
+footer .wrapper .footer-menu {
+  margin: auto;
+}
+
+footer .wrapper .cookies-text {
+  font-size: 12px;
+  text-align: center;
+  max-width: 86%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+  opacity: 0.6;
+}
+
+footer .wrapper .row-container.powered-by {
+  text-align: center;
+  font-size: 12px;
+}
+
+footer .wrapper .license {
+  opacity: 0.6;
+  font-size: 12px;
+  text-align: center;
+}
+
+footer .wrapper .footer-logo > a {
+  margin: 20px 0 10px;
+  height: auto;
+  display: block;
+  text-align: center;
+}
+
+footer .wrapper .footer-logo > a > img {
+  width: 183px;
+  height: 40px;
+  object-fit: contain;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+footer .wrapper .footer-socials i {
+  margin: 0 2px;
+  font-size: 23px;
+  opacity: 0.6;
+  cursor: pointer;
+}
+
+.fab {
+  font-family: "Font Awesome 5 Brands";
+  font-weight: 400;
+}
+
+footer .wrapper .footer-menu > ul {
+  display: flex;
+  justify-content: center;
+}
+
+footer .wrapper .footer-menu > ul > li {
+  margin: 0 5%;
+  font-weight: 500;
+  color: var(--accent);
+}
+
+footer .wrapper .payment-methods > ul {
+  display: flex;
+  justify-content: center;
+}
+
+footer .wrapper .payment-methods > ul > li {
+  margin: 0 2%;
+}
+
+footer .wrapper .payment-methods > ul > li > img {
+  height: 25px;
+  filter: contrast(0);
+}
+
+footer .wrapper .row-container.powered-by > p {
+  opacity: 0.5;
+  margin-bottom: 4px;
+}
+
+footer .wrapper .row-container.powered-by > img {
+  width: 133px;
+  margin: 0px 0px 0px -16px;
+}
+
+footer .wrapper .license {
+  opacity: 0.6;
+  font-size: 12px;
+  text-align: center;
+  color: white;
+}
+
+footer .wrapper .cookies-text {
+  color: white;
+}
+
+footer .wrapper .footer-logo > a > img {
+  filter: grayscale(1);
+}
+
+footer .wrapper .row-container.powered-by > p {
+  color: white;
+}

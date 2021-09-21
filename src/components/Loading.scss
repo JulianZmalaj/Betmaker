@@ -1,0 +1,35 @@
+.loading {
+  background-color: transparent;
+  height: 50px;
+  width: 50px;
+  border-radius: 50%;
+  border: 5px solid;
+  border-color: #20272b #20272b transparent transparent;
+  animation: spini 0.2s linear infinite;
+}
+
+.div-loading {
+  position: relative;
+  height: 100vh;
+  width: 100%;
+  top: 0;
+  flex-flow: column;
+  background-color: #3c494e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+@keyframes spini {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.div-loading > img {
+  height: 50px;
+  margin-bottom: 90px;
+}

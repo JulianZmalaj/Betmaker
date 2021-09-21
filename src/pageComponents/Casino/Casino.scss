@@ -1,0 +1,154 @@
+:root {
+  --accent: #52a6af;
+  --accent1: #f6ae2d;
+  --accent-bg: #52a6af;
+  --accent-col: #222;
+  --accent-bg-border-1: #6fb5bd;
+  --accent-bg-border-2: #38666a;
+  --accent1-bg: #ffbc42;
+  --accent1-col: #222;
+  --text-shadow: hsla(0, 0%, 0%, 0.25);
+  --headerTop-bg: #3c494e;
+  --headerTop-col: #fff;
+  --headerBottom-bg: #3c494e;
+  --headerBottom-col: #fff;
+  --tableHeader-bg: #3c494e;
+  --tableHeader-col: #fff;
+  --tableSubHeader-bg: #4a5a61;
+  --tableSubHeader-col: #fff;
+  --bg0: #2a373d;
+  --col0: #fff;
+  --borderColor0-1: #1b2225;
+  --borderColor0-2: #42545a;
+  --bg1: #3c494e;
+  --col1: #fff;
+  --borderColor1-1: #42545a;
+  --borderColor1-2: #2b363a;
+  --bg2: #46565d;
+  --col2: #fff;
+  --borderColor2-1: #52636a;
+  --borderColor2-2: #2e393d;
+  --border1BaseBg: #35454d;
+  --border2BaseBg: #242e33;
+  --containerBg: #f8f8f8;
+  --containerCol: #222;
+  --containerBorder: #dedede;
+  --menuLeftBg: #4a4a4a;
+  --menuLeftCol: #fff;
+  --menuLeftBorder: #535353;
+  --subMenuBg: #dbdcdd;
+  --subMenuCol: #222;
+  --subMenuBorder: #d2d3d4;
+  --menuWidth: 45px;
+  --margin: 15px;
+  --success-bg: #38c538;
+  --success-color: #292929;
+  --error-bg: #cd4141;
+  --error-color: white;
+  --baseBg: #2a373d;
+  --backDrop: rgba(0, 0, 0, 0.418);
+  --loader: linear-gradient(to right, #2a373d 2%, #32434a 18%, #2d3b42 33%);
+}
+
+.casino {
+  display: flex;
+  flex-flow: column;
+  width: 100%;
+  background: var(--bg0);
+  color: var(--col0);
+}
+
+.casino {
+  overflow: hidden;
+}
+
+.casino .slider {
+  object-fit: cover;
+  object-position: center;
+}
+
+.slick-slide img {
+  width: 100%;
+}
+
+.casino .filters {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  border-bottom: 2px dashed var(--bg2);
+  padding: 10px 0;
+  padding-top: 5px;
+  overflow: hidden;
+}
+
+.casino .content-m {
+  max-width: 1380px !important;
+}
+
+.casino .filters--categories {
+  display: flex;
+  align-items: center;
+  width: 80%;
+  margin: 10px;
+  flex-shrink: 1;
+  flex-grow: 0;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  margin-top: 0;
+  padding-top: 10px;
+}
+
+.casino .filters--categories > span {
+  --col: var(--bg2);
+  font-size: 14px;
+  font-weight: 600;
+  margin-right: 10px;
+  border-bottom: 3px solid transparent;
+  padding: 5px 0;
+  position: relative;
+  font-weight: normal;
+  cursor: pointer;
+  flex-shrink: 0;
+  opacity: 0.3;
+  transition: 0.3s opacity;
+}
+
+.casino .filters--categories > div {
+  width: 30px;
+  height: 30px;
+  background: var(--bg2);
+  color: var(--col2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  border-radius: 40px;
+  cursor: pointer;
+  margin-right: 10px;
+  flex-shrink: 0;
+}
+
+.casino .popular {
+  margin-top: 20px;
+  background: var(--bg2);
+  color: var(--col2);
+}
+
+.casino .filters--categories > span.active {
+  --col: var(--accent);
+  border-image: linear-gradient(
+      to right,
+      var(--col) 60%,
+      transparent 32%,
+      transparent 67%,
+      var(--col) 53%,
+      var(--col) 80%,
+      transparent 61%,
+      transparent 88%,
+      transparent 83%,
+      var(--col) 90%,
+      var(--col) 100%
+    )
+    1;
+  opacity: 1;
+}

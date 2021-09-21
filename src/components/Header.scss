@@ -1,0 +1,509 @@
+:root {
+  --header-bg: #3c494e;
+  --header-border-color: #2b363a;
+  --background-body: ;
+  --borderColor2-1: #52636a;
+  --borderColor2-1Hover: #52a6af;
+  --buttonYellow: #ffba24;
+  --accent: #52a6af;
+}
+
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+font,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  outline: 0;
+  box-sizing: border-box;
+  font-size: 100%;
+  vertical-align: baseline;
+  background: transparent;
+  font-family: "Roboto", "Titillium-Regular", sans-serif;
+  font-size: 13px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box !important;
+}
+
+body {
+  background-color: var(--background-body);
+}
+
+.top-header {
+  width: 100%;
+  background-color: var(--header-bg);
+  height: 40px;
+  border-bottom: 1px solid var(--header-border-color);
+  display: flex;
+  justify-content: center;
+}
+
+.bottom-header {
+  width: 100%;
+  background-color: var(--header-bg);
+  height: 63px;
+  border-top: 1px solid #42545a;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+}
+
+.content-main {
+  width: 100%;
+  display: flex;
+  max-width: 1150px;
+}
+
+.top-header--left {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  width: 50%;
+}
+
+.form-navbar {
+  display: flex;
+}
+
+.form-div input[type="text"] {
+  width: 80px;
+  background-color: #313d42;
+  color: white;
+  border: 0;
+  outline: 0;
+}
+
+.form-div {
+  background-color: #313d42;
+  height: 26px;
+  display: flex;
+  transition: 0.3s;
+  border: 1px solid var(--borderColor2-1);
+}
+.form-div:hover {
+  border: 1px solid var(--borderColor2-1Hover);
+}
+
+::placeholder {
+  color: white;
+  opacity: 1;
+}
+
+.form-div > i {
+  width: 30px;
+  filter: invert(1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.form-navbar span {
+  width: 26px;
+  height: 26px;
+  display: flex;
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  margin: 0 10px;
+  border: 1px solid var(--borderColor2-1);
+}
+
+.form-navbar button {
+  height: 26px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--buttonYellow);
+  border: 0;
+  padding: 0 10px;
+  cursor: pointer;
+  text-transform: uppercase;
+  font-size: 16px;
+  font-weight: 500;
+  font-size: 11px;
+}
+
+header .top-header--left > form > button:nth-of-type(1) {
+  margin-right: 10px;
+}
+
+.top-header--right {
+  height: 100%;
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  color: white;
+  align-items: center;
+}
+
+.top-header--right > div {
+  border-left: 1px solid var(--header-border-color);
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.support {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px;
+  height: 40px;
+  transition: 0.2s;
+  cursor: pointer;
+  text-transform: uppercase;
+}
+
+i.fas.fa-comments {
+  margin-right: 10px;
+}
+
+.socials {
+  padding: 0 10px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.socials img {
+  filter: grayscale(1);
+  width: 20px;
+  transition: 0.3s;
+  cursor: pointer;
+  transition: 0.3s;
+  border-radius: 2px;
+}
+
+.socials img:hover {
+  filter: grayscale(0);
+}
+
+.socials a {
+  margin-right: 5px;
+}
+
+.language {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  height: 40px;
+  border-right: 1px solid var(--header-border-color);
+
+  padding: 0 10px;
+}
+
+.language > div > img {
+  width: 23px;
+  margin-right: 5px;
+}
+
+.language > div {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-transform: uppercase;
+}
+
+.language > div > i {
+  margin-left: 10px;
+  cursor: pointer;
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.dropDown {
+  display: flex;
+  flex-direction: column;
+}
+
+.dropDown .dropDown-item {
+  display: flex;
+  align-items: center;
+  background-color: #dbfaf8;
+  color: #222;
+}
+
+.language .dropDown-item {
+  background-color: #f2f2f2;
+  color: #222;
+  border-color: #dbfaf8 !important;
+  border-top: 1px solid #dbfaf8;
+}
+
+.language .dropDown {
+  position: absolute;
+  right: 0;
+  bottom: 0px;
+  transform: translateY(100%);
+  z-index: 1;
+  width: 100px;
+  background: var(--bg2);
+  display: flex;
+  text-transform: uppercase;
+  flex-flow: column;
+  overflow: hidden;
+}
+
+.language .dropDown-item {
+  padding: 3px 10px;
+  border-bottom: 1px solid var(--borderColor1-1);
+  width: 100%;
+  transition: 0.3s;
+  cursor: pointer;
+  font-size: 12px;
+  text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.dropDown img {
+  width: 16px;
+  margin-right: 5px;
+  height: 18px;
+  object-fit: contain;
+}
+
+.dropDown-item:hover {
+  background-color: #52a6af;
+}
+
+.support:hover {
+  color: var(--accent);
+}
+
+header .bottom-header .logo img {
+  height: 40px;
+  cursor: pointer;
+  width: 100%;
+  max-width: 200px;
+  object-fit: contain;
+}
+
+.crazyHour > img {
+  pointer-events: none;
+  width: 100%;
+  max-width: 80px;
+  margin: auto;
+  position: relative;
+  top: 5px;
+}
+
+.crazyHour {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-left: auto;
+  margin-right: 20px;
+}
+a {
+  color: inherit;
+}
+
+header nav {
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: 10px;
+  justify-content: flex-end;
+}
+
+.nav-item {
+  margin-left: 20px;
+  text-transform: uppercase;
+  font-size: 14px;
+  cursor: pointer;
+  position: relative;
+  color: white;
+  text-decoration: none;
+}
+
+header .nav-item > span {
+  position: absolute;
+  right: 0;
+  top: 0;
+  font-size: 11px;
+  color: var(--buttonYellow);
+  white-space: nowrap;
+  transform: translateY(-100%) translateX(6px);
+}
+
+.content-main .logo {
+  align-items: center;
+  display: flex;
+}
+
+/* clock */
+
+html .playtime .clock {
+  border: 1px solid #636d71;
+  border-bottom-color: #353535;
+}
+
+.playtime .clock {
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  height: 37px;
+  position: relative;
+  margin-left: 15px;
+}
+
+html .playtime .clock::before {
+  background-color: #3c494e;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(255, 255, 255, 0.2);
+}
+.playtime .clock::before {
+  position: absolute;
+  left: 0;
+  z-index: 1;
+  top: 50%;
+  transform: translate(-100%, -50%);
+  height: 27px;
+  width: 7px;
+  background: var(--bg2);
+  content: "";
+  border: 1px 0 1px 1px solid var(--accent);
+  box-shadow: inset 1px 1px 6px 0px #0000002e;
+}
+html .playtime .clock::after {
+  background-color: #3c494e;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  border-left: 1px solid rgba(0, 0, 0, 0.2);
+  border-right: 1px solid rgba(255, 255, 255, 0.2);
+}
+.playtime .clock::after {
+  position: absolute;
+  right: 0;
+  z-index: 1;
+  top: 50%;
+  transform: translate(100%, -50%);
+  height: 27px;
+  width: 7px;
+  background: var(--bg2);
+  content: "";
+  box-shadow: inset 1px 1px 6px 0px #0000002e;
+}
+
+.playtime .clock > div {
+  background: #004e62 !important;
+  color: #1ab7af !important;
+}
+
+.playtime .clock > div {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  width: 45px;
+  background: var(--bg2);
+  color: var(--col2);
+  margin-right: 10px;
+  position: relative;
+  overflow: hidden;
+}
+
+.playtime .clock > div > span:first-child {
+  background: #52a6af;
+  color: #222;
+  width: 17px;
+  height: 21px;
+  position: relative;
+  left: 2px;
+}
+
+html .playtime .clock > div span {
+  color: inherit;
+}
+.playtime .clock > div > span {
+  padding: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-weight: 700;
+}
+
+.playtime > span {
+  font-size: 12px;
+  color: white;
+}
+
+.playtime {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
