@@ -6,6 +6,7 @@ import Sport from './pageComponents/Prematch/Sport.jsx';
 import Casino from './pageComponents/Casino/Casino.jsx';
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
 import React, { useEffect, useState, Component } from "react";
+import './animate.css'
 function App() {
 
   const [banners, setBanners] = useState({})

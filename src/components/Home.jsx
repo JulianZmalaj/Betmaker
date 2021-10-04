@@ -49,14 +49,14 @@ export default function Home({ sliders, miniBanners }) {
                 <div className="content-main">
                     <div className="sport-tabs">
                         <div className="sportTabs--item">
-                            <i className="far fa-futbol"></i>
+                            <i className="fal fa-futbol"></i>
                             <h3>
                                 SportBook
                                <span>Come and make your bet</span>
                             </h3>
                         </div>
                         <div className="sportTabs--item">
-                            <i className="far fa-comments"></i>
+                            <i className="fal fa-comments"></i>
 
 
                             <h3>
@@ -65,7 +65,7 @@ export default function Home({ sliders, miniBanners }) {
                             </h3>
                         </div>
                         <div className="sportTabs--item">
-                            <i className="far fa-clock"></i>
+                            <i className="fal fa-clock"></i>
                             <h3>
                                 Bet Now
                                <span>Place your bet</span>

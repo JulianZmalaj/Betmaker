@@ -317,3 +317,27 @@ i.fas.fa-play-circle.fa-3x {
 .casino .category .gameContainer {
   width: calc(100% / 6);
 }
+
+.loadMore {
+  margin: 20px auto;
+  width: auto;
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  width: 100%;
+}
+
+.loadMore i {
+  font-size: 16px;
+  color: var(--accent);
+  margin-bottom: 5px;
+}
+
+.loadMore span {
+  color: var(--col0);
+  margin-bottom: 30px;
+}

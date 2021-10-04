@@ -3,20 +3,14 @@ import './Games.scss'
 import Slider from "react-slick";
 
 function SimpleSlider({ slideref, allGames }) {
-
-
     const settings = {
         infinite: true,
         speed: 300,
         slidesToShow: 2,
         arrows: false,
         variableWidth: true,
-
-
     };
-
     return (
-
         <Slider {...settings} ref={slideref}>
             {
                 allGames.flat().filter((slot) => Object.keys(slot.categories || {}).includes('55')).map((item, index) => {
@@ -35,20 +29,48 @@ function SimpleSlider({ slideref, allGames }) {
                 })
             }
         </Slider>
-
     );
 }
 
+function ProvidersSlider({ provider_slideref, allGames, casinoData}) {
+    const settings = {
+        infinite: true,
+        speed: 300,
+        slidesToShow: 5,
+        slidesToScroll: 2,
+        arrows: false,
+        variableWidth: true,
+    };
 
+            const Providers = casinoData?.result?.providers;
 
-function Games({ casinoData }) {
+            console.log('acaasadas', Providers);
+    return (
+        <Slider {...settings} ref={provider_slideref}>
+            
+            {
+                    Providers.map((item)=>{
+                        return(
+                            <div>
+                            {item.name}
+                            </div>
+                        )
+                    })
+            }
+            
+                
+            
+        </Slider>
+    )
+}
 
+function Games({ allGames, active, casinoData }) {
     const slideref = useRef({})
-    const allGames = Object.values(casinoData?.result?.providers || {}).map((provider) => provider.slots)
-
-    console.log('allgames', allGames.flat());
+    const provider_slideref = useRef({})
+    const Categories = Object.values(casinoData?.result?.categories || {})
     return (
         <>
+
             <div className=" popular content-m ">
                 <div className="popular-title">
                     <span>Popular</span>
@@ -60,12 +82,8 @@ function Games({ casinoData }) {
                 <div className="popular--games">
                     {
                         (allGames.flat() || []).filter((slot) => {
-
                             return Object.keys(slot.categories || {}).includes('41') ? true : false
                         }).map((item) => {
-
-
-
                             return (
 
                                 <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
@@ -107,7 +125,6 @@ function Games({ casinoData }) {
                     <SimpleSlider allGames={allGames} slideref={slideref} ></SimpleSlider>
                 </div>
             </div>
-
             <div className="category content-m">
                 <div className="category-title">
                     <span>New Entry</span>
@@ -250,6 +267,20 @@ function Games({ casinoData }) {
                             </div>
                         })
                     }
+                </div>
+            </div>
+            <div className="gameSlider providers content-m">
+                <div className="gameSlider--title">
+                    <i className="fal fa-cubes"></i>
+                    <span>Game Providers <i>Only the most awesome games</i></span>
+
+                    <div>
+                        <i onClick={provider_slideref.current.slickPrev} className="far fa-chevron-left"></i>
+                        <i onClick={provider_slideref.current.slickNext} className="far fa-chevron-right"></i>
+                    </div>
+                </div>
+                <div className="gameSlider--games">
+                    <ProvidersSlider casinoData={casinoData} allGames={allGames} provider_slideref={provider_slideref} ></ProvidersSlider>
                 </div>
             </div>
         </>

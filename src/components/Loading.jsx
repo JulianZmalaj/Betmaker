@@ -6,7 +6,7 @@ function Loading() {
     return (
         <div className="main">
             <div className="div-loading">
-                <img class="animate__zoomInDown" src={logo} alt="" />
+                <img className="animate__animated animate__zoomInDown" style={{ animationDuration: "0.7s" }} src={logo} alt="" />
                 <div className="loading"></div>
             </div>
         </div>

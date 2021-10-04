@@ -5,6 +5,7 @@ import '../../components/Header.scss'
 import FilterCasino from './FilterCasino.jsx'
 import Games from './Games.jsx'
 import LoadingCasino from '../../components/Loading.jsx'
+import GamesWithActive from './GamesWithActive';
 
 
 
@@ -41,15 +42,18 @@ function SimpleSlider({ sliders }) {
 function Casino({ sliders }) {
 
     const [casinoData, setCasinoData] = useState({})
-    const [active, setActive] = useState("231");
+    const [active, setActive] = useState({ id: 231 });
     const [loadingCasino, setLoadingCasino] = useState(true)
+
+    const allGames = Object.values(casinoData?.result?.providers || {}).map((provider) => provider.slots)
 
     const toggleActive = (item) => {
         setActive(item);
     }
 
 
-    const url = 'https://testoffice.playlogiq.com/betbuq/get_slots/casino?platform=web&img=safari'
+    const url = 'https://testoffice.playlogiq.com/betbuq/get_slots/casino?platform=web&img=safari'              ///// Betmaker
+    // const url = 'https://content.betbuq.com/get_slots/Betbuq/casino/ios?lang=it'                               ///// Bebuq
 
     const fetchApi = async () => {
         try {
@@ -82,7 +86,8 @@ function Casino({ sliders }) {
                     <SimpleSlider sliders={sliders} />
                 </div>
                 <FilterCasino toggleActive={toggleActive} active={active} casinoData={casinoData} />
-                <Games casinoData={casinoData} />
+                {active.id == '231' ? <Games allGames={allGames} casinoData={casinoData} /> : <GamesWithActive allGames={allGames} active={active} />}
+
 
             </div >
         )
