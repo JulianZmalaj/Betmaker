@@ -247,17 +247,19 @@ i.fas.fa-play-circle.fa-3x {
   margin-right: 15px;
 }
 
-.gameSlider--games {
-  .slick-slide img {
-    height: 320px;
-    width: 345px;
-  }
+.tournaments {
+  .gameSlider--games {
+    .slick-slide img {
+      height: 320px;
+      width: 345px;
+    }
 
-  .gameContainer .imageContainer {
-    height: unset !important;
-  }
-  .slick-slide {
-    width: 345px !important;
+    .gameContainer .imageContainer {
+      height: unset !important;
+    }
+    .slick-slide {
+      width: 345px !important;
+    }
   }
 }
 
@@ -340,4 +342,115 @@ i.fas.fa-play-circle.fa-3x {
 .loadMore span {
   color: var(--col0);
   margin-bottom: 30px;
+}
+
+.providerContainer {
+  display: flex;
+  flex-flow: column;
+  padding: 10px;
+  overflow: hidden;
+  margin-bottom: 50px;
+}
+
+.providerContainer > img {
+  width: 100%;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  min-height: 190px;
+}
+
+.providerContainer--bottom {
+  display: flex;
+  height: 73px;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  background: var(--bg2);
+  color: var(--col2);
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 15px;
+}
+
+.providerContainer--bottom > div {
+  display: flex;
+  flex-flow: column;
+  height: 100%;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.providerContainer--bottom button {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 40px;
+  width: 40px;
+  border: none;
+  border-radius: 46px;
+  background-color: var(--accent-bg);
+  color: var(--accent-col);
+  box-shadow: inset 0 -2px 0 0 #00000052, 1px 2px 4px 0 #00000038;
+  font-family: Roboto, sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0;
+  line-height: 16px;
+  cursor: pointer;
+  padding: 0 16px;
+  margin-right: 10px;
+  font-weight: 600;
+  font-size: 13px;
+  text-transform: capitalize;
+}
+
+.providerContainer--bottom > div > span:first-child {
+  font-size: 18px;
+  font-weight: 600;
+  color: #52a6af;
+}
+
+.providerContainer--bottom > div > span:last-child {
+  font-style: 12px;
+  font-weight: 300;
+  margin-top: 3px;
+}
+
+.gameSlider.providers .gameSlider--title > i {
+  color: #ad7ada;
+}
+
+.gameSlider.providers.content-m {
+  margin-top: 100px;
+}
+
+.gameSlider--title i {
+  cursor: pointer;
+}
+
+.FilterLabel {
+  position: absolute;
+  right: 0;
+  top: 0%;
+  transform: translateY(-10px) translateX(10px);
+  font-size: 10px;
+  color: var(--accent);
+  text-transform: uppercase;
+}
+
+.casino .filters--categories > span:hover {
+  border-image: linear-gradient(
+      to right,
+      var(--col) 60%,
+      transparent 32%,
+      transparent 67%,
+      var(--col) 53%,
+      var(--col) 80%,
+      transparent 61%,
+      transparent 88%,
+      transparent 83%,
+      var(--col) 90%,
+      var(--col) 100%
+    )
+    1;
+  opacity: 1;
 }
