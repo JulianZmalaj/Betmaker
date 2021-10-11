@@ -454,3 +454,221 @@ i.fas.fa-play-circle.fa-3x {
     1;
   opacity: 1;
 }
+
+.filters--categories .active i.fa.fa-heart {
+  font-weight: bold;
+}
+.filters--categories i.fa.fa-heart {
+  font-weight: normal;
+}
+
+.EmptyFavList i {
+  font-size: 20px;
+  margin-right: 10px;
+}
+
+.EmptyFavList span {
+  font-size: 20px;
+}
+
+.casino .filters--search > div input {
+  cursor: pointer !important;
+}
+
+.casinoSearch {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #000000bd;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow-y: hidden;
+  height: 100vh !important;
+}
+
+.casinoSearch .wrapper {
+  width: 100%;
+  max-width: 80%;
+  height: 80vh;
+  background-color: #2a373d;
+  color: #fff;
+  display: flex;
+  flex-flow: column;
+}
+
+.casinoSearch--top {
+  background-color: #fff;
+  color: #222;
+  width: 100%;
+  height: 50px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: stretch;
+  position: relative;
+  box-shadow: 0px 10px 10px -6px #00000061;
+  z-index: 2;
+}
+
+.casinoSearch--inner {
+  flex-grow: 1;
+  overflow-y: scroll;
+  display: flex;
+}
+
+.casinoSearch--top .fa-search {
+  position: absolute;
+  left: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.casinoSearch--top input {
+  flex-grow: 1;
+  border: 0;
+  background: transparent;
+  padding: 0 30px;
+}
+
+.casinoSearch--top button {
+  border: 0;
+  background: transparent;
+  display: flex;
+  padding: 0 5px;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+  height: 100%;
+  width: 100%;
+  max-width: 100px;
+  border-left: 1px solid #ccc;
+}
+
+.casinoSearch--top i,
+.casinoSearch--top .count {
+  display: flex;
+  align-items: center;
+}
+
+.casinoSearch--top .count {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  background: #268bd2;
+  width: 15px;
+  height: 15px;
+  border-radius: 50px;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 9px;
+  right: 5px;
+  transition: 0.5s;
+}
+
+.casinoSearch--top .close {
+  position: absolute;
+  right: -30px;
+  top: -30px;
+  color: #fff;
+  font-weight: 300;
+  font-size: 25px;
+  cursor: pointer;
+}
+
+.casinoSearch--top i,
+.casinoSearch--top .count {
+  display: flex;
+  align-items: center;
+  margin-left: 10px;
+}
+
+.casinoSearch--inner .left {
+  display: flex;
+  flex-flow: row wrap;
+  width: calc(100% - 320px);
+  flex-grow: 1;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+  display: grid;
+  grid-auto-flow: dense;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  grid-gap: 10px;
+  padding: 0 10px;
+}
+
+.casinoSearch--inner .right {
+  width: 320px;
+  flex-shrink: 0;
+  top: 0;
+  background: #3c494e;
+  color: #fff;
+  box-shadow: -8px 2px 12px -6px #000;
+  position: sticky;
+  z-index: 1;
+  padding-bottom: 30px;
+  overflow-y: scroll;
+  padding-bottom: 30px;
+}
+
+.casinoSearch--inner .left .filterResults {
+  --col: #f6ae2d;
+  display: flex;
+  width: calc(100% + 20px);
+  margin-left: -10px;
+  grid-column: 1/-1;
+  padding: 10px 0;
+  flex-flow: column;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background: var(--bg0);
+  color: var(--col0);
+  height: auto;
+  box-shadow: 0px 10px 10px -6px #00000061;
+  z-index: 2;
+}
+
+.casinoSearch--inner .left .gameContainer {
+  width: 100%;
+  padding: 0;
+}
+
+.casinoSearch--inner .left .filterResults .topCat {
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  padding: 0 15px;
+}
+
+.casinoSearch--inner .left .filterResults .topCat span.active {
+  border-bottom: 2px solid;
+  border-image: linear-gradient(
+      to right,
+      var(--col) 60%,
+      transparent 32%,
+      transparent 67%,
+      var(--col) 53%,
+      var(--col) 80%,
+      transparent 61%,
+      transparent 88%,
+      transparent 83%,
+      var(--col) 90%,
+      var(--col) 100%
+    )
+    1;
+  opacity: 1;
+}
+
+.casinoSearch--inner .left .filterResults .topCat span {
+  padding: 5px;
+  cursor: pointer;
+  margin-right: 10px;
+  border-bottom: 2px solid transparent;
+  opacity: 0.8;
+}

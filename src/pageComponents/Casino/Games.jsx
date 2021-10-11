@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./Games.scss";
 import Slider from "react-slick";
 
-function SimpleSlider({ slideref, allGames }) {
+function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites }) {
   const settings = {
     infinite: true,
     speed: 300,
@@ -11,7 +11,7 @@ function SimpleSlider({ slideref, allGames }) {
     variableWidth: true,
   };
   return (
-    <Slider {...settings} ref={slideref}>
+    <Slider favorites={favorites} {...settings} ref={slideref}>
       {allGames
         .flat()
         .filter((slot) => Object.keys(slot.categories || {}).includes("55"))
@@ -26,7 +26,13 @@ function SimpleSlider({ slideref, allGames }) {
               </div>
               <div>
                 <span>{item.name}</span>
-                <i className="fal fa-heart" aria-hidden="true"></i>
+                <i
+                  onClick={() => {
+                    addFavoritedSlot(item);
+                  }}
+                  className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                  aria-hidden="true"
+                ></i>
               </div>
             </div>
           );
@@ -35,7 +41,7 @@ function SimpleSlider({ slideref, allGames }) {
   );
 }
 
-function ProvidersSlider({ provider_slideref, casinoData }) {
+function ProvidersSlider({ provider_slideref, casinoData, favorites }) {
   const settings2 = {
     slidesToShow: 5,
     slidesToScroll: 2,
@@ -46,10 +52,10 @@ function ProvidersSlider({ provider_slideref, casinoData }) {
   const Providers = Object.values(casinoData?.result?.providers || {});
 
   return (
-    <Slider {...settings2} ref={provider_slideref}>
+    <Slider favorites={favorites} {...settings2} ref={provider_slideref}>
       {Providers.map((provider, index) => {
         return (
-          <div>
+          <div key={index}>
             <div className="providerContainer">
               <img src={provider.provider_logo} alt={provider.name} />
               <div className="providerContainer--bottom">
@@ -69,7 +75,7 @@ function ProvidersSlider({ provider_slideref, casinoData }) {
   );
 }
 
-function Games({ toggleActive, allGames, casinoData }) {
+function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites }) {
   const slideref = useRef({});
   const provider_slideref = useRef({});
 
@@ -110,7 +116,13 @@ function Games({ toggleActive, allGames, casinoData }) {
                   </div>
                   <div>
                     <span>{item.name}</span>
-                    <i className="fal fa-heart" aria-hidden="true"></i>
+                    <i
+                      onClick={() => {
+                        addFavoritedSlot(item);
+                      }}
+                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      aria-hidden="true"
+                    ></i>
                   </div>
                 </div>
               );
@@ -136,7 +148,12 @@ function Games({ toggleActive, allGames, casinoData }) {
           </div>
         </div>
         <div className="gameSlider--games">
-          <SimpleSlider allGames={allGames} slideref={slideref}></SimpleSlider>
+          <SimpleSlider
+            favorites={favorites}
+            addFavoritedSlot={addFavoritedSlot}
+            allGames={allGames}
+            slideref={slideref}
+          ></SimpleSlider>
         </div>
       </div>
 
@@ -172,7 +189,13 @@ function Games({ toggleActive, allGames, casinoData }) {
                   </div>
                   <div>
                     <span>{item.name}</span>
-                    <i className="fal fa-heart" aria-hidden="true"></i>
+                    <i
+                      onClick={() => {
+                        addFavoritedSlot(item);
+                      }}
+                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      aria-hidden="true"
+                    ></i>
                   </div>
                 </div>
               );
@@ -211,7 +234,13 @@ function Games({ toggleActive, allGames, casinoData }) {
                   </div>
                   <div>
                     <span>{item.name}</span>
-                    <i className="fal fa-heart" aria-hidden="true"></i>
+                    <i
+                      onClick={() => {
+                        addFavoritedSlot(item);
+                      }}
+                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      aria-hidden="true"
+                    ></i>
                   </div>
                 </div>
               );
@@ -251,7 +280,13 @@ function Games({ toggleActive, allGames, casinoData }) {
                   </div>
                   <div>
                     <span>{item.name}</span>
-                    <i className="fal fa-heart" aria-hidden="true"></i>
+                    <i
+                      onClick={() => {
+                        addFavoritedSlot(item);
+                      }}
+                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      aria-hidden="true"
+                    ></i>
                   </div>
                 </div>
               );
@@ -290,7 +325,13 @@ function Games({ toggleActive, allGames, casinoData }) {
                   </div>
                   <div>
                     <span>{item.name}</span>
-                    <i className="fal fa-heart" aria-hidden="true"></i>
+                    <i
+                      onClick={() => {
+                        addFavoritedSlot(item);
+                      }}
+                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      aria-hidden="true"
+                    ></i>
                   </div>
                 </div>
               );

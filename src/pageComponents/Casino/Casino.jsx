@@ -6,6 +6,7 @@ import FilterCasino from "./FilterCasino.jsx";
 import Games from "./Games.jsx";
 import LoadingCasino from "../../components/Loading.jsx";
 import GamesWithActive from "./GamesWithActive";
+import CasinoModal from "./CasinoModal";
 
 const settings = {
   dots: true,
@@ -31,10 +32,14 @@ function SimpleSlider({ sliders }) {
 function Casino({ sliders }) {
   const [casinoData, setCasinoData] = useState({});
   const [active, setActive] = useState({ id: 231 });
-  const [activeFav, setActiveFav] = useState([]);
   const [loadingCasino, setLoadingCasino] = useState(true);
   const [fav, setFav] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  const [toggleModal, setToggleModal] = useState(false);
+
+  const handleModalToggle = () => {
+    setToggleModal(!toggleModal);
+  };
 
   const handleFav = () => {
     setFav(true);
@@ -47,11 +52,6 @@ function Casino({ sliders }) {
 
   const toggleActive = (item) => {
     setActive(item);
-  };
-  console.log(activeFav);
-  const toggleActiveFav = (item) => {
-    const newFavoritedList = [...activeFav, item];
-    setActiveFav(newFavoritedList);
   };
 
   const url = "https://testoffice.playlogiq.com/betbuq/get_slots/casino?platform=web&img=safari";
@@ -73,7 +73,8 @@ function Casino({ sliders }) {
 
   const addFavoritedSlot = (item) => {
     const newFavoritedList = [...favorites, item];
-    setFavorites(newFavoritedList);
+    let uniqueList = [...new Set(newFavoritedList)];
+    setFavorites(uniqueList);
   };
   const removeFavoritedSlot = (item) => {
     const newFavoritedList = favorites.filter((favorite) => {
@@ -92,6 +93,16 @@ function Casino({ sliders }) {
   } else {
     return (
       <div className="casino">
+        <CasinoModal
+          favorites={favorites}
+          fav={fav}
+          addFavoritedSlot={addFavoritedSlot}
+          removeFavoritedSlot={removeFavoritedSlot}
+          allGames={allGames}
+          active={active}
+          handleModalToggle={handleModalToggle}
+          toggleModal={toggleModal}
+        />
         <div className="slider">
           <SimpleSlider sliders={sliders} />
         </div>
@@ -101,13 +112,18 @@ function Casino({ sliders }) {
           toggleActive={toggleActive}
           active={active}
           casinoData={casinoData}
+          handleModalToggle={handleModalToggle}
         />
         {active.id == "231" ? (
-          <Games toggleActive={toggleActive} allGames={allGames} casinoData={casinoData} />
+          <Games
+            addFavoritedSlot={addFavoritedSlot}
+            toggleActive={toggleActive}
+            allGames={allGames}
+            casinoData={casinoData}
+            favorites={favorites}
+          />
         ) : (
           <GamesWithActive
-            activeFav={activeFav}
-            toggleActiveFav={toggleActiveFav}
             favorites={favorites}
             fav={fav}
             addFavoritedSlot={addFavoritedSlot}

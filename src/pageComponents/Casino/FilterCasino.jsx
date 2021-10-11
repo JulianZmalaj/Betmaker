@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import "./Games.scss";
 
-function FilterCasino({ toggleActive, active, casinoData, handleFav, falseFav }) {
+function FilterCasino({ toggleActive, active, casinoData, handleFav, falseFav, handleModalToggle }) {
   return (
     <div className="filters content-m">
       <div className="filters--categories">
@@ -12,12 +12,12 @@ function FilterCasino({ toggleActive, active, casinoData, handleFav, falseFav })
               id: 233,
             });
           }}
-          className={active.id == "233" ? "active" : null}
+          className={active.id === 233 ? "active" : null}
         >
           <i className="fa fa-heart"></i>
         </div>
         <span
-          className={active.id == "231" ? "active" : null}
+          className={active.id === 231 ? "active" : null}
           onClick={() => {
             falseFav();
             toggleActive({
@@ -43,7 +43,12 @@ function FilterCasino({ toggleActive, active, casinoData, handleFav, falseFav })
           );
         })}
       </div>
-      <div className="filters--search">
+      <div
+        onClick={() => {
+          handleModalToggle();
+        }}
+        className="filters--search"
+      >
         <div>
           <i className="fal fa-search"></i>
           <input type="text" placeholder="Search for a game" />

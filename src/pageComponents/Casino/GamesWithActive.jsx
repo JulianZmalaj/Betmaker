@@ -1,18 +1,8 @@
 import React, { useState, useEffect } from "react";
 import "./Games.scss";
 
-function GamesWithActive({
-  allGames,
-  active,
-  addFavoritedSlot,
-  fav,
-  favorites,
-  removeFavoritedSlot,
-  toggleActiveFav,
-  activeFav,
-}) {
+function GamesWithActive({ allGames, active, addFavoritedSlot, fav, favorites, removeFavoritedSlot }) {
   const [splice, setSplice] = useState(12);
-
   const handleSplice = () => {
     setSplice(splice + 10);
   };
@@ -48,11 +38,9 @@ function GamesWithActive({
                       <span>"{item.name}"</span>
                       <i
                         onClick={() => {
-                          toggleActiveFav(item);
                           addFavoritedSlot(item);
                         }}
-                        className="fal fa-heart"
-                        className={activeFav.id === item.id ? "active fal fa-heart" : "fal fa-heart"}
+                        className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
                         aria-hidden="true"
                       ></i>
                     </div>
@@ -67,7 +55,7 @@ function GamesWithActive({
             </button>
           ) : null}
         </div>
-      ) : (
+      ) : favorites.length > 0 ? (
         <div className="category content-m">
           <div className="category-title">
             <span>Favorites</span>
@@ -88,7 +76,7 @@ function GamesWithActive({
                       onClick={() => {
                         removeFavoritedSlot(item);
                       }}
-                      className="fal fa-heart"
+                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
                       aria-hidden="true"
                     ></i>
                   </div>
@@ -102,6 +90,15 @@ function GamesWithActive({
               <span>Load More</span>
             </button>
           ) : null}
+        </div>
+      ) : (
+        <div className="category content-m">
+          <div className="category-title">
+            <span className="EmptyFavList">
+              <i className="fas fa-exclamation-circle"></i>
+              <span>Favorited list is Empty </span>
+            </span>
+          </div>
         </div>
       )}
     </>
