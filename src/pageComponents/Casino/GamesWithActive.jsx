@@ -38,9 +38,13 @@ function GamesWithActive({ allGames, active, addFavoritedSlot, fav, favorites, r
                       <span>"{item.name}"</span>
                       <i
                         onClick={() => {
-                          addFavoritedSlot(item);
+                          favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                         }}
-                        className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                        className={
+                          favorites.includes(item)
+                            ? "active fal fa-heart animate__animated animate__tada"
+                            : "fal fa-heart"
+                        }
                         aria-hidden="true"
                       ></i>
                     </div>

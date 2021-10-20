@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import "./Games.scss";
 import Slider from "react-slick";
 
-function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites }) {
+function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeFavoritedSlot }) {
   const settings = {
     infinite: true,
     speed: 300,
@@ -28,9 +28,11 @@ function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites }) {
                 <span>{item.name}</span>
                 <i
                   onClick={() => {
-                    addFavoritedSlot(item);
+                    favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                   }}
-                  className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                  className={
+                    favorites.includes(item) ? "active fal fa-heart animate__animated animate__tada" : "fal fa-heart"
+                  }
                   aria-hidden="true"
                 ></i>
               </div>
@@ -48,7 +50,6 @@ function ProvidersSlider({ provider_slideref, casinoData, favorites }) {
     arrows: false,
     dots: false,
   };
-
   const Providers = Object.values(casinoData?.result?.providers || {});
 
   return (
@@ -75,13 +76,13 @@ function ProvidersSlider({ provider_slideref, casinoData, favorites }) {
   );
 }
 
-function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites }) {
+function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites, fav, removeFavoritedSlot }) {
   const slideref = useRef({});
   const provider_slideref = useRef({});
 
   const GetId = Object.values(casinoData?.result?.categories || {});
 
-  return (
+  return !fav ? (
     <>
       <div className=" popular content-m ">
         <div className="popular-title">
@@ -118,9 +119,13 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
                     <span>{item.name}</span>
                     <i
                       onClick={() => {
-                        addFavoritedSlot(item);
+                        favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                       }}
-                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      className={
+                        favorites.includes(item)
+                          ? "active fal fa-heart animate__animated animate__tada"
+                          : "fal fa-heart"
+                      }
                       aria-hidden="true"
                     ></i>
                   </div>
@@ -153,10 +158,10 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
             addFavoritedSlot={addFavoritedSlot}
             allGames={allGames}
             slideref={slideref}
+            removeFavoritedSlot={removeFavoritedSlot}
           ></SimpleSlider>
         </div>
       </div>
-
       <div className="category content-m">
         <div className="category-title">
           <span>New Entry</span>
@@ -191,9 +196,13 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
                     <span>{item.name}</span>
                     <i
                       onClick={() => {
-                        addFavoritedSlot(item);
+                        favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                       }}
-                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      className={
+                        favorites.includes(item)
+                          ? "active fal fa-heart animate__animated animate__tada"
+                          : "fal fa-heart"
+                      }
                       aria-hidden="true"
                     ></i>
                   </div>
@@ -236,9 +245,13 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
                     <span>{item.name}</span>
                     <i
                       onClick={() => {
-                        addFavoritedSlot(item);
+                        favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                       }}
-                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      className={
+                        favorites.includes(item)
+                          ? "active fal fa-heart animate__animated animate__tada"
+                          : "fal fa-heart"
+                      }
                       aria-hidden="true"
                     ></i>
                   </div>
@@ -282,9 +295,13 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
                     <span>{item.name}</span>
                     <i
                       onClick={() => {
-                        addFavoritedSlot(item);
+                        favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                       }}
-                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      className={
+                        favorites.includes(item)
+                          ? "active fal fa-heart animate__animated animate__tada"
+                          : "fal fa-heart"
+                      }
                       aria-hidden="true"
                     ></i>
                   </div>
@@ -327,9 +344,13 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
                     <span>{item.name}</span>
                     <i
                       onClick={() => {
-                        addFavoritedSlot(item);
+                        favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
                       }}
-                      className={favorites.includes(item) ? "active fal fa-heart" : "fal fa-heart"}
+                      className={
+                        favorites.includes(item)
+                          ? "active fal fa-heart animate__animated animate__tada"
+                          : "fal fa-heart"
+                      }
                       aria-hidden="true"
                     ></i>
                   </div>
@@ -344,7 +365,6 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
           <span>
             Game Providers <i>Only the most awesome games</i>
           </span>
-
           <div>
             <i onClick={provider_slideref.current.slickPrev} className="far fa-chevron-left"></i>
             <i onClick={provider_slideref.current.slickNext} className="far fa-chevron-right"></i>
@@ -355,7 +375,7 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
         </div>
       </div>
     </>
-  );
+  ) : null;
 }
 
 export default Games;

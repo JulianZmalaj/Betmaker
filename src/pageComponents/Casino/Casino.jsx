@@ -34,6 +34,7 @@ function Casino({ sliders }) {
   const [active, setActive] = useState({ id: 231 });
   const [loadingCasino, setLoadingCasino] = useState(true);
   const [fav, setFav] = useState(false);
+  const [favPopUp, setfavPopUp] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [toggleModal, setToggleModal] = useState(false);
 
@@ -43,9 +44,11 @@ function Casino({ sliders }) {
 
   const handleFav = () => {
     setFav(true);
+    setfavPopUp(true);
   };
   const falseFav = () => {
     setFav(false);
+    setfavPopUp(false);
   };
 
   const allGames = Object.values(casinoData?.result?.providers || {}).map((provider) => provider.slots);
@@ -76,6 +79,7 @@ function Casino({ sliders }) {
     let uniqueList = [...new Set(newFavoritedList)];
     setFavorites(uniqueList);
   };
+
   const removeFavoritedSlot = (item) => {
     const newFavoritedList = favorites.filter((favorite) => {
       return favorite.id !== item.id;
@@ -94,18 +98,20 @@ function Casino({ sliders }) {
     return (
       <div className="casino">
         <CasinoModal
+          favPopUp={favPopUp}
           favorites={favorites}
-          fav={fav}
           addFavoritedSlot={addFavoritedSlot}
           removeFavoritedSlot={removeFavoritedSlot}
           allGames={allGames}
           active={active}
           handleModalToggle={handleModalToggle}
           toggleModal={toggleModal}
+          casinoData={casinoData}
+          handleFav={handleFav}
+          falseFav={falseFav}
         />
-        <div className="slider">
-          <SimpleSlider sliders={sliders} />
-        </div>
+        <SimpleSlider sliders={sliders} />
+
         <FilterCasino
           falseFav={falseFav}
           handleFav={handleFav}
@@ -116,6 +122,7 @@ function Casino({ sliders }) {
         />
         {active.id == "231" ? (
           <Games
+            removeFavoritedSlot={removeFavoritedSlot}
             addFavoritedSlot={addFavoritedSlot}
             toggleActive={toggleActive}
             allGames={allGames}

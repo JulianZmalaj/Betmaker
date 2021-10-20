@@ -49,14 +49,24 @@ function FilterCasino({ toggleActive, active, casinoData, handleFav, falseFav, h
         }}
         className="filters--search"
       >
-        <div>
-          <i className="fal fa-search"></i>
-          <input type="text" placeholder="Search for a game" />
-        </div>
-        <button>
-          Providers
-          <i className="fa fa-line-columns"></i>
-        </button>
+        <>
+          <div
+            onClick={() => {
+              falseFav();
+            }}
+          >
+            <i className="fal fa-search"></i>
+            <input type="text" placeholder="Search for a game" />
+          </div>
+          <button
+            onClick={() => {
+              falseFav();
+            }}
+          >
+            Providers
+            <i className="fa fa-line-columns"></i>
+          </button>
+        </>
       </div>
     </div>
   );
