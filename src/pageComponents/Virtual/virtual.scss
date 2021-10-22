@@ -1,0 +1,18 @@
+.virtualContainer.gameSlider.tournaments.content-m {
+  background-image: url(../../images/virtualWallpaper.jpg);
+  min-height: 400px;
+  background-size: cover;
+}
+
+.virtualContainer .gameSlider--games .slick-slide img {
+  height: 190px !important;
+  width: 240px !important;
+}
+
+.virtualContainer .gameSlider--games .gameContainer .imageContainer {
+  width: 240px !important;
+}
+
+.virtualContainer .gameSlider--games .slick-slide {
+  width: unset !important;
+}

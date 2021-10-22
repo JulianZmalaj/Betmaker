@@ -1,12 +1,12 @@
 import React, { useState, useEffect } from "react";
-import "./Casino.scss";
+import "../Casino/Casino.scss";
 import Slider from "react-slick";
 import "../../components/Header.scss";
-import FilterCasino from "./FilterCasino.jsx";
-import Games from "./Games.jsx";
+import FilterCasino from "../Casino/FilterCasino.jsx";
+import AllGames from "./AllGamesVirtual.jsx";
 import LoadingCasino from "../../components/Loading.jsx";
-import GamesWithActive from "./GamesWithActive";
-import CasinoModal from "./CasinoModal";
+import GamesWithActive from "../Casino/GamesWithActive";
+import CasinoModal from "../Casino/CasinoModal";
 
 const settings = {
   dots: true,
@@ -37,7 +37,6 @@ function Casino({ sliders }) {
   const [favPopUp, setfavPopUp] = useState(false);
   const [favorites, setFavorites] = useState([]);
   const [toggleModal, setToggleModal] = useState(false);
-  const [splice, setSplice] = useState(12);
   const [modalFilters, setModalFilters] = useState([]);
 
   const addModalFilters = (item) => {
@@ -73,7 +72,7 @@ function Casino({ sliders }) {
     setActive(item);
   };
 
-  const url = "https://testoffice.playlogiq.com/betbuq/get_slots/casino?platform=web&img=safari";
+  const url = "https://testoffice.playlogiq.com/betbuq/get_slots/virtual?platform=web&img=safari";
 
   const fetchApi = async () => {
     try {
@@ -89,10 +88,6 @@ function Casino({ sliders }) {
   useEffect(() => {
     fetchApi();
   }, []);
-
-  const handleSplice = () => {
-    setSplice(splice + 10);
-  };
 
   const addFavoritedSlot = (item) => {
     const newFavoritedList = [...favorites, item];
@@ -118,10 +113,9 @@ function Casino({ sliders }) {
     return (
       <div className="casino">
         <CasinoModal
-          removeModalFilters={removeModalFilters}
           modalFilters={modalFilters}
+          removeModalFilters={removeModalFilters}
           addModalFilters={addModalFilters}
-          handleSplice={handleSplice}
           favPopUp={favPopUp}
           favorites={favorites}
           addFavoritedSlot={addFavoritedSlot}
@@ -145,7 +139,8 @@ function Casino({ sliders }) {
           handleModalToggle={handleModalToggle}
         />
         {active.id == "231" ? (
-          <Games
+          <AllGames
+            active={active}
             removeFavoritedSlot={removeFavoritedSlot}
             addFavoritedSlot={addFavoritedSlot}
             toggleActive={toggleActive}

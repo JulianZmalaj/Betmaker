@@ -294,6 +294,13 @@ i.fas.fa-play-circle.fa-3x {
   letter-spacing: 1px;
   opacity: 0.9;
 }
+.gameSlider--title {
+  margin-top: 30px;
+}
+
+.casinoSearch--top button:hover {
+  background: #52a6af;
+}
 
 .casino .category-title button {
   display: flex;
@@ -746,4 +753,41 @@ i.fas.fa-play-circle.fa-3x {
 .providersWrapper > span.active {
   background: #52a6af;
   color: #222;
+}
+
+.v-futball {
+  color: #00b800 !important;
+}
+.casinoSearch--inner .left .filterResults .bottCat {
+  display: flex;
+  padding: 0 15px;
+  justify-content: flex-start;
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin-top: 15px;
+  padding-bottom: 5px;
+}
+
+.casinoSearch--inner .left .filterResults .bottCat > span {
+  background: #00000042;
+  height: 28px;
+  border-radius: 20px;
+  display: flex;
+  padding: 0 10px;
+  display: flex;
+  align-items: center;
+  margin-right: 5px;
+  cursor: pointer;
+  flex-grow: 0;
+  text-transform: capitalize;
+  flex-shrink: 0;
+}
+
+.casinoSearch--inner .left .filterResults .bottCat > span i {
+  margin-left: 5px;
+  transition: 0.3s;
+}
+
+.casinoSearch--inner .left .loadMore {
+  grid-column: 1/-1;
 }

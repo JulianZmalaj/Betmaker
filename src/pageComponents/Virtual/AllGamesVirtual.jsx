@@ -1,6 +1,8 @@
 import React, { useRef } from "react";
-import "./Games.scss";
+import "../Casino/Games.scss";
+import "./virtual.scss";
 import Slider from "react-slick";
+import images from "../../images.js";
 
 function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeFavoritedSlot }) {
   const settings = {
@@ -14,10 +16,10 @@ function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeF
     <Slider favorites={favorites} {...settings} ref={slideref}>
       {allGames
         .flat()
-        .filter((slot) => Object.keys(slot.categories || {}).includes("55"))
+        .filter((slot) => Object.keys(slot.categories || {}).includes("35"))
         .map((item) => {
           return (
-            <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
+            <div className="virtual_container gameContainer animate__animated animate__fadeIn" key={item.id}>
               <div className="imageContainer">
                 <img src={item.logo} alt="" />
                 <div className="hover">
@@ -85,69 +87,10 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
 
   return !fav ? (
     <>
-      <div className=" popular content-m ">
-        <div className="popular-title">
-          <span>Popular</span>
-          <button
-            onClick={() => {
-              GetId.map((item) => {
-                return toggleActive({
-                  id: 41,
-                  name: "Popular",
-                });
-              });
-            }}
-          >
-            Show all
-            <i className="fal fa-chevron-right"></i>
-          </button>
-        </div>
-        <div className="popular--games">
-          {(allGames.flat() || [])
-            .filter((slot) => {
-              return Object.keys(slot.categories || {}).includes("41") ? true : false;
-            })
-            .map((item) => {
-              return (
-                <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
-                  <div className="imageContainer">
-                    <img src={item.logo} alt="" />
-                    <div className="hover">
-                      <i className="fas fa-play-circle fa-3x"></i>
-                    </div>
-                  </div>
-                  <div>
-                    <span>{item.name}</span>
-                    <i
-                      onClick={() => {
-                        favorites.includes(item) ? removeFavoritedSlot(item) : addFavoritedSlot(item);
-                      }}
-                      className={
-                        favorites.includes(item)
-                          ? "active fal fa-heart animate__animated animate__tada"
-                          : "fal fa-heart"
-                      }
-                      aria-hidden="true"
-                    ></i>
-                  </div>
-                </div>
-              );
-            })}
-        </div>
-      </div>
-      <div className="waveWrapper content-m">
-        <svg width="100%" viewBox="0 0 1440 260">
-          <path
-            className="wave-bg"
-            fillOpacity="1"
-            d="M0,128L80,112C160,96,320,64,480,74.7C640,85,800,139,960,149.3C1120,160,1280,128,1360,112L1440,96L1440,0L1360,0C1280,0,1120,0,960,0C800,0,640,0,480,0C320,0,160,0,80,0L0,0Z"
-          ></path>
-        </svg>
-      </div>
-      <div className="gameSlider tournaments content-m">
+      <div className="virtualContainer gameSlider tournaments content-m">
         <div className="gameSlider--title">
-          <i className="fal fa-fire"></i>
-          <span>Tournaments</span>
+          <i className="v-futball fal fa-futbol"></i>
+          <span>V-Football</span>
           <div>
             <i onClick={slideref.current.slickPrev} className="far fa-chevron-left"></i>
             <i onClick={slideref.current.slickNext} className="far fa-chevron-right"></i>
@@ -162,10 +105,12 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
             removeFavoritedSlot={removeFavoritedSlot}
           ></SimpleSlider>
         </div>
+        {/* <div className="absoluteGifVirutal">
+          <img src={images.Cr7} alt="" />
+        </div> */}
       </div>
-
       {Providers.map((item, index) => {
-        if (item.id !== 45 && item.id !== 55 && item.id !== 41 && item.id !== 45 && item.id !== 24) {
+        if (item.id == 36 || item.id == 66) {
           return (
             <div key={index} className="category content-m">
               <div className="category-title">

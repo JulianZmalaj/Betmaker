@@ -4,8 +4,10 @@ import Home from "./components/Home.jsx";
 import Footer from "./components/Footer.jsx";
 import Sport from "./pageComponents/Prematch/Sport.jsx";
 import Casino from "./pageComponents/Casino/Casino.jsx";
+import CasinoLive from "./pageComponents/Casino-Live/CasinoLive.jsx";
+import Virtual from "./pageComponents/Virtual/Virtual.jsx";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
-import React, { useEffect, useState, Component } from "react";
+import React, { useEffect, useState } from "react";
 import "./animate.css";
 function App() {
   const [banners, setBanners] = useState({});
@@ -44,6 +46,12 @@ function App() {
         </Route>
         <Route path="/casino">
           <Casino sliders={banners?.result?.casino?.center} />
+        </Route>
+        <Route path="/casino-live">
+          <CasinoLive sliders={banners?.result?.casino_live?.center} />
+        </Route>
+        <Route path="/virtual">
+          <Virtual sliders={banners?.result?.virtual?.center} />
         </Route>
       </Switch>
       <Footer />
