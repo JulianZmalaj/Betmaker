@@ -791,3 +791,8 @@ i.fas.fa-play-circle.fa-3x {
 .casinoSearch--inner .left .loadMore {
   grid-column: 1/-1;
 }
+
+.casinoSearch--inner .left .filterResults .bottCat > span:hover {
+  background: #7b0000;
+  transition: 0.3s;
+}

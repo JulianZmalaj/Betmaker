@@ -14,6 +14,11 @@ export default class CasinoModal extends Component {
       splice: this.state.splice + 20,
     });
   };
+  resetSplice = () => {
+    this.setState({
+      splice: 30,
+    });
+  };
 
   handleShowFilters = () => {
     this.setState({
@@ -22,6 +27,17 @@ export default class CasinoModal extends Component {
   };
 
   render() {
+    console.log(this.props.modalCategories);
+
+    const numberOfGamesCategory = this.props.allGames
+      .flat()
+      .filter((slot) =>
+        Object.keys(slot.categories || {}).includes(this.props.modalCategories.map((item) => item.id).toString()),
+      );
+
+    const FilteredGames = Object.values(this.props.modalFilters || {})
+      .map((item) => item.slots)
+      .flat();
     const Providers = Object.values(this.props.casinoData?.result?.providers || {});
     const Categories = Object.values(this.props.casinoData?.result?.categories || {});
     const numberOfGames = this.props.allGames
@@ -35,8 +51,6 @@ export default class CasinoModal extends Component {
         }
       })
       .slice(0, this.state.splice);
-
-    console.log(numberOfGames.length);
 
     if (this.props.toggleModal) {
       return (
@@ -102,7 +116,7 @@ export default class CasinoModal extends Component {
                       Preferiti({this.props.favorites.length})
                     </span>
                   </div>
-                  {this.props.modalFilters.length > 0 ? (
+                  {this.props.modalFilters.length > 0 || this.props.modalCategories.length > 0 ? (
                     <div className="bottCat">
                       {this.props.modalFilters.map((item, index) => {
                         return (
@@ -118,10 +132,26 @@ export default class CasinoModal extends Component {
                           </span>
                         );
                       })}
+                      {this.props.modalCategories.map((item, index) => {
+                        return (
+                          <span
+                            onClick={() => {
+                              this.props.removeModalCategory(item);
+                            }}
+                            key={index}
+                            className="animate__animated animate__fadeInUp"
+                          >
+                            {item.name}
+                            <i className="fal fa-times-circle"></i>
+                          </span>
+                        );
+                      })}
                     </div>
                   ) : null}
                 </div>
-                {!this.props.favPopUp ? (
+                {!this.props.favPopUp &&
+                this.props.modalFilters.length == 0 &&
+                this.props.modalCategories?.length == 0 ? (
                   <>
                     {this.props.allGames
                       .flat()
@@ -176,33 +206,153 @@ export default class CasinoModal extends Component {
                       </button>
                     )}
                   </>
-                ) : (
-                  this.props.favorites.map((item) => {
-                    return (
-                      <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
-                        <div className="imageContainer">
-                          <img src={item.logo} alt="" />
-                          <div className="hover">
-                            <i className="fas fa-play-circle fa-3x"></i>
+                ) : this.props.favPopUp ? (
+                  this.props.favorites
+                    .filter((val) => {
+                      if (this.state.searchFilter == "") {
+                        return val;
+                      } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
+                        return val;
+                      }
+                    })
+                    .map((item) => {
+                      return (
+                        <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
+                          <div className="imageContainer">
+                            <img src={item.logo} alt="" />
+                            <div className="hover">
+                              <i className="fas fa-play-circle fa-3x"></i>
+                            </div>
+                          </div>
+                          <div>
+                            <span>"{item.name}"</span>
+                            <i
+                              onClick={() => {
+                                this.props.removeFavoritedSlot(item);
+                              }}
+                              className={
+                                this.props.favorites.includes(item)
+                                  ? "active fal fa-heart animate__animated animate__tada"
+                                  : "fal fa-heart"
+                              }
+                              aria-hidden="true"
+                            ></i>
                           </div>
                         </div>
-                        <div>
-                          <span>"{item.name}"</span>
-                          <i
-                            onClick={() => {
-                              this.props.removeFavoritedSlot(item);
-                            }}
-                            className={
-                              this.props.favorites.includes(item)
-                                ? "active fal fa-heart animate__animated animate__tada"
-                                : "fal fa-heart"
-                            }
-                            aria-hidden="true"
-                          ></i>
-                        </div>
-                      </div>
-                    );
-                  })
+                      );
+                    })
+                ) : this.props.modalFilters.length > 0 ? (
+                  <>
+                    {FilteredGames.splice(0, this.state.splice)
+                      .filter((val) => {
+                        if (this.state.searchFilter == "") {
+                          return val;
+                        } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
+                          return val;
+                        }
+                      })
+                      .map((item) => {
+                        return (
+                          <>
+                            <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
+                              <div className="imageContainer">
+                                <img src={item.logo} alt="" />
+                                <div className="hover">
+                                  <i className="fas fa-play-circle fa-3x"></i>
+                                </div>
+                              </div>
+                              <div>
+                                <span>{item.name}</span>
+                                <i
+                                  onClick={() => {
+                                    this.props.favorites.includes(item)
+                                      ? this.props.removeFavoritedSlot(item)
+                                      : this.props.addFavoritedSlot(item);
+                                  }}
+                                  className={
+                                    this.props.favorites.includes(item)
+                                      ? "active fal fa-heart animate__animated animate__tada"
+                                      : "fal fa-heart"
+                                  }
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })}
+
+                    {FilteredGames.length < 30 ? null : (
+                      <button
+                        onClick={() => {
+                          this.raiseSplice();
+                        }}
+                        className="loadMore"
+                      >
+                        <i className="fal fa-sync-alt"></i>
+                        <span>Load More</span>
+                      </button>
+                    )}
+                  </>
+                ) : (
+                  <>
+                    {this.props.allGames
+                      .flat()
+                      .filter((slot) =>
+                        Object.keys(slot.categories || {}).includes(
+                          this.props.modalCategories.map((item) => item.id).toString(),
+                        ),
+                      )
+                      .splice(0, this.state.splice)
+                      .filter((val) => {
+                        if (this.state.searchFilter == "") {
+                          return val;
+                        } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
+                          return val;
+                        }
+                      })
+                      .map((item, index) => {
+                        return (
+                          <>
+                            <div className="gameContainer animate__animated animate__fadeIn" key={index}>
+                              <div className="imageContainer">
+                                <img src={item.logo} alt="" />
+                                <div className="hover">
+                                  <i className="fas fa-play-circle fa-3x"></i>
+                                </div>
+                              </div>
+                              <div>
+                                <span>{item.name}</span>
+                                <i
+                                  onClick={() => {
+                                    this.props.favorites.includes(item)
+                                      ? this.props.removeFavoritedSlot(item)
+                                      : this.props.addFavoritedSlot(item);
+                                  }}
+                                  className={
+                                    this.props.favorites.includes(item)
+                                      ? "active fal fa-heart animate__animated animate__tada"
+                                      : "fal fa-heart"
+                                  }
+                                  aria-hidden="true"
+                                ></i>
+                              </div>
+                            </div>
+                          </>
+                        );
+                      })}
+                    {numberOfGamesCategory.length < 30 ? null : (
+                      <button
+                        onClick={() => {
+                          this.raiseSplice();
+                        }}
+                        className="loadMore"
+                      >
+                        <i className="fal fa-sync-alt"></i>
+                        <span>Load More</span>
+                      </button>
+                    )}
+                  </>
                 )}
               </div>
               {this.state.showFilters ? (
@@ -212,10 +362,13 @@ export default class CasinoModal extends Component {
                     {Providers.map((item, index) => {
                       return (
                         <span
-                          className={this.state.providerActive.includes(item) ? "active" : null}
+                          className={this.props.modalFilters.includes(item) ? "active" : null}
                           key={index}
                           onClick={() => {
-                            this.props.addModalFilters(item);
+                            this.resetSplice();
+                            this.props.modalFilters.includes(item)
+                              ? this.props.removeModalFilters(item)
+                              : this.props.addModalFilters(item);
                           }}
                         >
                           {item.name}
@@ -225,15 +378,19 @@ export default class CasinoModal extends Component {
                   </div>
                   <h2>Categories</h2>
                   <div className="providersWrapper">
-                    {Categories.map((item) => {
+                    {Categories.map((item, index) => {
                       return (
                         <span
-                          className={this.state.providerActive.includes(item) ? "active" : null}
+                          key={index}
+                          className={this.props.modalCategories.includes(item) ? "active" : null}
+                          // onClick={() => {
+                          //   this.props.toggleActive(item);
+                          // }}
+
                           onClick={() => {
-                            this.setState({
-                              providerActive: item,
-                            });
-                            this.props.addModalFilters(item);
+                            this.props.modalCategories.includes(item)
+                              ? this.props.removeModalCategory(item)
+                              : this.props.addModalCategory(item);
                           }}
                         >
                           {item.name}

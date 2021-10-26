@@ -39,6 +39,21 @@ function Casino({ sliders }) {
   const [favorites, setFavorites] = useState([]);
   const [toggleModal, setToggleModal] = useState(false);
   const [modalFilters, setModalFilters] = useState([]);
+  const [modalCategories, setModalCategories] = useState([]);
+
+  const addModalCategory = (item) => {
+    const newModalCategoriesList = [...modalCategories, item];
+    let uniqueList = [...new Set(newModalCategoriesList)];
+    setModalCategories(uniqueList);
+  };
+
+  const removeModalCategory = (item) => {
+    const newModalCategoriesList = modalCategories.filter((filter) => {
+      return filter.id !== item.id;
+    });
+
+    setModalCategories(newModalCategoriesList);
+  };
 
   const addModalFilters = (item) => {
     const newModalFiltersList = [...modalFilters, item];
@@ -114,6 +129,10 @@ function Casino({ sliders }) {
     return (
       <div className="casino">
         <CasinoModal
+          removeModalCategory={removeModalCategory}
+          addModalCategory={addModalCategory}
+          modalCategories={modalCategories}
+          toggleActive={toggleActive}
           modalFilters={modalFilters}
           removeModalFilters={removeModalFilters}
           addModalFilters={addModalFilters}
