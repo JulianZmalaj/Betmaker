@@ -796,3 +796,36 @@ i.fas.fa-play-circle.fa-3x {
   background: #7b0000;
   transition: 0.3s;
 }
+
+.gamesByFilter--title h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
+
+.sortDiv {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.sortDiv span {
+  font-size: 16px;
+  margin-left: 15px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+.sortDiv span:nth-child(1) {
+  cursor: unset !important;
+}
+.sortDiv span:nth-child(1):hover {
+  color: unset !important;
+}
+
+.sortDiv span:hover {
+  color: var(--buttonYellow);
+}
+
+.sortDiv > span.active {
+  color: var(--buttonYellow);
+}

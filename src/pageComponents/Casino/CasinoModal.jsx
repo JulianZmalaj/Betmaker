@@ -27,8 +27,6 @@ export default class CasinoModal extends Component {
   };
 
   render() {
-    console.log(this.props.modalCategories);
-
     const numberOfGamesCategory = this.props.allGames
       .flat()
       .filter((slot) =>
@@ -167,7 +165,7 @@ export default class CasinoModal extends Component {
                       .map((item, index) => {
                         return (
                           <>
-                            <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
+                            <div className="gameContainer animate__animated animate__fadeIn" key={index}>
                               <div className="imageContainer">
                                 <img src={item.logo} alt="" />
                                 <div className="hover">
@@ -215,30 +213,32 @@ export default class CasinoModal extends Component {
                         return val;
                       }
                     })
-                    .map((item) => {
+                    .map((item, index) => {
                       return (
-                        <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
-                          <div className="imageContainer">
-                            <img src={item.logo} alt="" />
-                            <div className="hover">
-                              <i className="fas fa-play-circle fa-3x"></i>
+                        <>
+                          <div className="gameContainer animate__animated animate__fadeIn" key={index}>
+                            <div className="imageContainer">
+                              <img src={item.logo} alt="" />
+                              <div className="hover">
+                                <i className="fas fa-play-circle fa-3x"></i>
+                              </div>
+                            </div>
+                            <div>
+                              <span>"{item.name}"</span>
+                              <i
+                                onClick={() => {
+                                  this.props.removeFavoritedSlot(item);
+                                }}
+                                className={
+                                  this.props.favorites.includes(item)
+                                    ? "active fal fa-heart animate__animated animate__tada"
+                                    : "fal fa-heart"
+                                }
+                                aria-hidden="true"
+                              ></i>
                             </div>
                           </div>
-                          <div>
-                            <span>"{item.name}"</span>
-                            <i
-                              onClick={() => {
-                                this.props.removeFavoritedSlot(item);
-                              }}
-                              className={
-                                this.props.favorites.includes(item)
-                                  ? "active fal fa-heart animate__animated animate__tada"
-                                  : "fal fa-heart"
-                              }
-                              aria-hidden="true"
-                            ></i>
-                          </div>
-                        </div>
+                        </>
                       );
                     })
                 ) : this.props.modalFilters.length > 0 ? (
@@ -251,10 +251,10 @@ export default class CasinoModal extends Component {
                           return val;
                         }
                       })
-                      .map((item) => {
+                      .map((item, index) => {
                         return (
                           <>
-                            <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
+                            <div className="gameContainer animate__animated animate__fadeIn" key={index}>
                               <div className="imageContainer">
                                 <img src={item.logo} alt="" />
                                 <div className="hover">

@@ -40,6 +40,11 @@ function Casino({ sliders }) {
   const [toggleModal, setToggleModal] = useState(false);
   const [modalFilters, setModalFilters] = useState([]);
   const [modalCategories, setModalCategories] = useState([]);
+  const [sortActive, setSortActive] = useState("99");
+
+  const toggleSortActive = (item) => {
+    setSortActive(item.toString());
+  };
 
   const addModalCategory = (item) => {
     const newModalCategoriesList = [...modalCategories, item];
@@ -105,10 +110,21 @@ function Casino({ sliders }) {
     fetchApi();
   }, []);
 
+  useEffect(() => {
+    const favoritedSlots = JSON.parse(localStorage.getItem("favorited-slots"));
+
+    setFavorites(favoritedSlots);
+  }, []);
+
+  const saveToLocalStorage = (items) => {
+    localStorage.setItem("favorited-slots", JSON.stringify(items));
+  };
+
   const addFavoritedSlot = (item) => {
     const newFavoritedList = [...favorites, item];
     let uniqueList = [...new Set(newFavoritedList)];
     setFavorites(uniqueList);
+    saveToLocalStorage(newFavoritedList);
   };
 
   const removeFavoritedSlot = (item) => {
@@ -117,6 +133,7 @@ function Casino({ sliders }) {
     });
 
     setFavorites(newFavoritedList);
+    saveToLocalStorage(newFavoritedList);
   };
 
   if (loadingCasino) {
@@ -170,6 +187,8 @@ function Casino({ sliders }) {
           />
         ) : (
           <GamesWithActive
+            toggleSortActive={toggleSortActive}
+            sortActive={sortActive}
             favorites={favorites}
             fav={fav}
             addFavoritedSlot={addFavoritedSlot}

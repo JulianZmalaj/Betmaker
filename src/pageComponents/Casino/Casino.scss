@@ -162,3 +162,15 @@
 i.active.fal.fa-heart {
   font-weight: bold;
 }
+
+.gamesByFilter--title {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+
+.gamesByFilter--title h2 {
+  font-size: 20px;
+  text-transform: uppercase;
+  opacity: 0.8;
+}
