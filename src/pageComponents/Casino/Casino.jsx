@@ -36,6 +36,7 @@ function Casino({ sliders }) {
   const [fav, setFav] = useState(false);
   const [favPopUp, setfavPopUp] = useState(false);
   const [favorites, setFavorites] = useState([]);
+  console.log("ca kaf", favorites);
   const [toggleModal, setToggleModal] = useState(false);
   const [splice, setSplice] = useState(12);
   const [modalFilters, setModalFilters] = useState([]);
@@ -113,7 +114,7 @@ function Casino({ sliders }) {
   useEffect(() => {
     const favoritedSlots = JSON.parse(localStorage.getItem("favorited-slots"));
 
-    setFavorites(favoritedSlots);
+    favoritedSlots.length > 0 && setFavorites(favoritedSlots);
   }, []);
 
   const saveToLocalStorage = (items) => {

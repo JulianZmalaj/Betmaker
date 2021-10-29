@@ -111,7 +111,7 @@ function Casino({ sliders }) {
   useEffect(() => {
     const favoritedSlots = JSON.parse(localStorage.getItem("favorited-slots"));
 
-    setFavorites(favoritedSlots);
+    favoritedSlots.length > 0 && setFavorites(favoritedSlots);
   }, []);
 
   const saveToLocalStorage = (items) => {
