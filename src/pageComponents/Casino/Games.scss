@@ -815,6 +815,22 @@ i.fas.fa-play-circle.fa-3x {
   transition: 0.3s;
   cursor: pointer;
 }
+
+.casinoSearch--inner .right h2 button {
+  background: #00000029;
+  color: inherit;
+  border-radius: 30px;
+  border: 0;
+  text-transform: capitalize;
+  padding: 4px 10px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.casinoSearch--inner .right h2 button:hover {
+  background-color: #b80000;
+  color: white;
+}
+
 .sortDiv span:nth-child(1) {
   cursor: unset !important;
 }

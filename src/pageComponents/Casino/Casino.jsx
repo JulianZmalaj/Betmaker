@@ -36,7 +36,6 @@ function Casino({ sliders }) {
   const [fav, setFav] = useState(false);
   const [favPopUp, setfavPopUp] = useState(false);
   const [favorites, setFavorites] = useState([]);
-  console.log("ca kaf", favorites);
   const [toggleModal, setToggleModal] = useState(false);
   const [splice, setSplice] = useState(12);
   const [modalFilters, setModalFilters] = useState([]);
@@ -73,6 +72,14 @@ function Casino({ sliders }) {
     });
 
     setModalFilters(newModalFiltersList);
+  };
+
+  const clearModalFilters = (item) => {
+    const newModalFiltersList = [];
+    const newModalCategories = [];
+
+    setModalFilters(newModalFiltersList);
+    setModalCategories(newModalCategories);
   };
 
   const handleModalToggle = () => {
@@ -114,7 +121,7 @@ function Casino({ sliders }) {
   useEffect(() => {
     const favoritedSlots = JSON.parse(localStorage.getItem("favorited-slots"));
 
-    favoritedSlots.length > 0 && setFavorites(favoritedSlots);
+    favoritedSlots?.length > 0 && setFavorites(favoritedSlots);
   }, []);
 
   const saveToLocalStorage = (items) => {
@@ -151,6 +158,7 @@ function Casino({ sliders }) {
     return (
       <div className="casino">
         <CasinoModal
+          clearModalFilters={clearModalFilters}
           removeModalCategory={removeModalCategory}
           addModalCategory={addModalCategory}
           modalCategories={modalCategories}
@@ -181,7 +189,7 @@ function Casino({ sliders }) {
           casinoData={casinoData}
           handleModalToggle={handleModalToggle}
         />
-        {active.id == "231" ? (
+        {active.id === 231 ? (
           <Games
             removeFavoritedSlot={removeFavoritedSlot}
             addFavoritedSlot={addFavoritedSlot}

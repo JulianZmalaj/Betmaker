@@ -80,7 +80,6 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
   const slideref = useRef({});
   const provider_slideref = useRef({});
 
-  const GetId = Object.values(casinoData?.result?.categories || {});
   const Providers = Object.values(casinoData?.result?.categories || {});
 
   return !fav ? (

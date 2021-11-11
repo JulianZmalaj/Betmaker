@@ -111,11 +111,19 @@ function Casino({ sliders }) {
   useEffect(() => {
     const favoritedSlots = JSON.parse(localStorage.getItem("favorited-slots"));
 
-    favoritedSlots.length > 0 && setFavorites(favoritedSlots);
+    favoritedSlots?.length > 0 && setFavorites(favoritedSlots);
   }, []);
 
   const saveToLocalStorage = (items) => {
     localStorage.setItem("favorited-slots", JSON.stringify(items));
+  };
+
+  const clearModalFilters = (item) => {
+    const newModalFiltersList = [];
+    const newModalCategories = [];
+
+    setModalFilters(newModalFiltersList);
+    setModalCategories(newModalCategories);
   };
 
   const addFavoritedSlot = (item) => {
@@ -144,6 +152,7 @@ function Casino({ sliders }) {
     return (
       <div className="casino">
         <CasinoModal
+          clearModalFilters={clearModalFilters}
           removeModalCategory={removeModalCategory}
           addModalCategory={addModalCategory}
           modalCategories={modalCategories}
@@ -173,7 +182,7 @@ function Casino({ sliders }) {
           casinoData={casinoData}
           handleModalToggle={handleModalToggle}
         />
-        {active.id == "231" ? (
+        {active.id === 231 ? (
           <AllGames
             active={active}
             removeFavoritedSlot={removeFavoritedSlot}

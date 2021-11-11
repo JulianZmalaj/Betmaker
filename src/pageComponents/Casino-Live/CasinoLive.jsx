@@ -3,7 +3,6 @@ import "../Casino/Casino.scss";
 import Slider from "react-slick";
 import "../../components/Header.scss";
 import FilterCasino from "../Casino/FilterCasino.jsx";
-import Games from "../Casino/Games.jsx";
 import AllGames from "./AllGames.jsx";
 import LoadingCasino from "../../components/Loading.jsx";
 import GamesWithActive from "../Casino/GamesWithActive";
@@ -78,6 +77,14 @@ function Casino({ sliders }) {
     setToggleModal(!toggleModal);
   };
 
+  const clearModalFilters = (item) => {
+    const newModalFiltersList = [];
+    const newModalCategories = [];
+
+    setModalFilters(newModalFiltersList);
+    setModalCategories(newModalCategories);
+  };
+
   const handleFav = () => {
     setFav(true);
     setfavPopUp(true);
@@ -113,7 +120,7 @@ function Casino({ sliders }) {
   useEffect(() => {
     const favoritedSlots = JSON.parse(localStorage.getItem("favorited-slots"));
 
-    favoritedSlots.length > 0 && setFavorites(favoritedSlots);
+    favoritedSlots?.length > 0 && setFavorites(favoritedSlots);
   }, []);
 
   const saveToLocalStorage = (items) => {
@@ -146,6 +153,7 @@ function Casino({ sliders }) {
     return (
       <div className="casino">
         <CasinoModal
+          clearModalFilters={clearModalFilters}
           removeModalCategory={removeModalCategory}
           addModalCategory={addModalCategory}
           modalCategories={modalCategories}
@@ -175,7 +183,7 @@ function Casino({ sliders }) {
           casinoData={casinoData}
           handleModalToggle={handleModalToggle}
         />
-        {active.id == "231" ? (
+        {active.id === 231 ? (
           <AllGames
             active={active}
             removeFavoritedSlot={removeFavoritedSlot}

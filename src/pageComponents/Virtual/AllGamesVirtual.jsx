@@ -2,7 +2,6 @@ import React, { useRef } from "react";
 import "../Casino/Games.scss";
 import "./virtual.scss";
 import Slider from "react-slick";
-import images from "../../images.js";
 
 function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeFavoritedSlot }) {
   const settings = {
@@ -82,7 +81,6 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
   const slideref = useRef({});
   const provider_slideref = useRef({});
 
-  const GetId = Object.values(casinoData?.result?.categories || {});
   const Providers = Object.values(casinoData?.result?.categories || {});
 
   return !fav ? (
@@ -110,7 +108,7 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
         </div> */}
       </div>
       {Providers.map((item, index) => {
-        if (item.id == 36 || item.id == 66) {
+        if (item.id === 36 || item.id === 66) {
           return (
             <div key={index} className="category content-m">
               <div className="category-title">

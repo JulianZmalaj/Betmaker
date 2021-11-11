@@ -42,11 +42,11 @@ export default class CasinoModal extends Component {
       .flat()
       .filter((slot) => Object.keys(slot.categories || {}))
       .filter((val) => {
-        if (this.state.searchFilter == "") {
+        if (this.state.searchFilter === "") {
           return val;
         } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
           return val;
-        }
+        } else return val;
       })
       .slice(0, this.state.splice);
 
@@ -55,6 +55,7 @@ export default class CasinoModal extends Component {
         <div
           onClick={() => {
             this.props.handleModalToggle();
+            this.props.falseFav();
           }}
           className="casinoSearch"
         >
@@ -148,18 +149,18 @@ export default class CasinoModal extends Component {
                   ) : null}
                 </div>
                 {!this.props.favPopUp &&
-                this.props.modalFilters.length == 0 &&
-                this.props.modalCategories?.length == 0 ? (
+                this.props.modalFilters.length === 0 &&
+                this.props.modalCategories?.length === 0 ? (
                   <>
                     {this.props.allGames
                       .flat()
                       .filter((slot) => Object.keys(slot.categories || {}))
                       .filter((val) => {
-                        if (this.state.searchFilter == "") {
+                        if (this.state.searchFilter === "") {
                           return val;
                         } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
                           return val;
-                        }
+                        } else return val;
                       })
                       .slice(0, this.state.splice)
                       .map((item, index) => {
@@ -207,11 +208,11 @@ export default class CasinoModal extends Component {
                 ) : this.props.favPopUp ? (
                   this.props.favorites
                     .filter((val) => {
-                      if (this.state.searchFilter == "") {
+                      if (this.state.searchFilter === "") {
                         return val;
                       } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
                         return val;
-                      }
+                      } else return val;
                     })
                     .map((item, index) => {
                       return (
@@ -245,11 +246,11 @@ export default class CasinoModal extends Component {
                   <>
                     {FilteredGames.splice(0, this.state.splice)
                       .filter((val) => {
-                        if (this.state.searchFilter == "") {
+                        if (this.state.searchFilter === "") {
                           return val;
                         } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
                           return val;
-                        }
+                        } else return val;
                       })
                       .map((item, index) => {
                         return (
@@ -305,11 +306,11 @@ export default class CasinoModal extends Component {
                       )
                       .splice(0, this.state.splice)
                       .filter((val) => {
-                        if (this.state.searchFilter == "") {
+                        if (this.state.searchFilter === "") {
                           return val;
                         } else if (val.name.toLowerCase().includes(this.state.searchFilter.toLowerCase())) {
                           return val;
-                        }
+                        } else return val;
                       })
                       .map((item, index) => {
                         return (
@@ -357,7 +358,18 @@ export default class CasinoModal extends Component {
               </div>
               {this.state.showFilters ? (
                 <div className="right animate__animated animate__backInRight">
-                  <h2>Providers</h2>
+                  <h2>
+                    Providers
+                    {this.props.modalFilters.length > 0 || this.props.modalCategories.length > 0 ? (
+                      <button
+                        onClick={() => {
+                          this.props.clearModalFilters();
+                        }}
+                      >
+                        Clear Filters!
+                      </button>
+                    ) : null}
+                  </h2>
                   <div className="providersWrapper">
                     {Providers.map((item, index) => {
                       return (

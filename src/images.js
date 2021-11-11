@@ -1,4 +1,4 @@
-export default {
+const MyImages = {
   england: require("./images/englandFlag.svg").default,
   italy: require("./images/ItalyFlag.svg").default,
   facebook: require("./images/facebook.svg").default,
@@ -11,3 +11,5 @@ export default {
   VirtualWallpaper: require("./images/virtualWallpaper.jpg").default,
   Cr7: require("./images/cr7-si.gif").default,
 };
+
+export default MyImages;
