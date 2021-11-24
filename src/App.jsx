@@ -6,6 +6,7 @@ import Sport from "./pageComponents/Prematch/Sport.jsx";
 import Casino from "./pageComponents/Casino/Casino.jsx";
 import CasinoLive from "./pageComponents/Casino-Live/CasinoLive.jsx";
 import Virtual from "./pageComponents/Virtual/Virtual.jsx";
+import Bonus from "./pageComponents/Bonus/Bonus";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import React, { useEffect, useState } from "react";
 import "./animate.css";
@@ -52,6 +53,9 @@ function App() {
         </Route>
         <Route path="/virtual">
           <Virtual sliders={banners?.result?.virtual?.center} />
+        </Route>
+        <Route path="/bonus">
+          <Bonus />
         </Route>
       </Switch>
       <Footer />

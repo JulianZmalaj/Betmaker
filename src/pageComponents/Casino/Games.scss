@@ -845,3 +845,237 @@ i.fas.fa-play-circle.fa-3x {
 .sortDiv > span.active {
   color: var(--buttonYellow);
 }
+
+.sub-navigation {
+  display: flex;
+  justify-content: space-between;
+  height: 30px;
+  background: var(--bg1);
+  color: var(--col1);
+  border-top: 1px solid var(--borderColor1-1);
+  border-bottom: 1px solid var(--borderColor1-2);
+  border-left: 1px solid var(--borderColor1-1);
+  border-right: 1px solid var(--borderColor1-2);
+}
+
+.sub-navigation a,
+.sub-navigation span {
+  margin: 0 10px;
+  font-size: 11px;
+  font-weight: 400;
+  text-shadow: 0 -1px 0 var(--text-shadow);
+  line-height: 30px;
+}
+.sub-navigation a,
+.sub-navigation span {
+  margin: 0 10px;
+  font-size: 11px;
+  font-weight: 400;
+  text-shadow: 0 -1px 0 var(--text-shadow);
+  line-height: 30px;
+}
+
+.sub-navigation a:hover,
+.sub-navigation span:hover {
+  color: var(--accent);
+  text-shadow: none;
+}
+
+.pages-main-content {
+  background: var(--bg1);
+}
+
+.pages-main-content > .pages-left-menu {
+  width: 275px;
+}
+
+.pages-main-content > div {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.pages-main-content > .pages-right {
+  width: calc(100% - 275px);
+  padding: 40px 20px;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories {
+  background: var(--bg2);
+  color: var(--col2);
+  border-top: 1px solid var(--borderColor2-1);
+  border-bottom: 1px solid var(--borderColor2-2);
+  border-left: 1px solid var(--borderColor2-1);
+  border-right: 1px solid var(--borderColor2-2);
+  position: relative;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories > .dot-style {
+  left: 5px;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories .dot-style {
+  position: absolute;
+  background: var(--accent);
+  width: 5px;
+  height: 5px;
+  top: 12px;
+  left: 10px;
+  border-radius: 50%;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories > h3 {
+  line-height: 30px;
+  padding: 0 15px;
+  font-size: 13px;
+  font-weight: 400;
+  cursor: pointer;
+}
+body {
+  user-select: none;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories > .promotions-subcategories {
+  background: var(--bg0);
+  color: var(--col0);
+  border-top: 1px solid var(--borderColor0-1);
+  border-bottom: 1px solid var(--borderColor0-2);
+  border-left: 1px solid var(--borderColor0-1);
+  border-right: 1px solid var(--borderColor0-2);
+  position: relative;
+  animation-duration: 0.61s;
+  line-height: 30px;
+  padding: 0 20px;
+  cursor: pointer;
+  transition: color 0.3s ease-in-out;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories .dot-style {
+  position: absolute;
+  background: var(--accent);
+  width: 5px;
+  height: 5px;
+  top: 12px;
+  left: 10px;
+  border-radius: 50%;
+}
+
+.pages-main-content > .pages-left-menu .promotions-categories > .dot-style {
+  left: 5px;
+}
+
+.pages-main-content > .pages-right {
+  width: calc(100% - 275px);
+  padding: 40px 20px;
+}
+
+.promo-page-single-content:nth-child(odd) {
+  margin-right: 10px;
+}
+
+.promo-page-single-content {
+  width: calc(50% - 10px);
+  display: inline-block;
+  margin: 0 0 40px;
+}
+
+.promo-page-single-content:nth-child(2n) {
+  margin-left: 10px;
+}
+
+.promo-page-single-content .promo-banner-content {
+  padding: 0 10px 20px 40%;
+  background: var(--header-color);
+  -webkit-box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.6);
+  box-shadow: 0 0 14px 3px rgba(0, 0, 0, 0.6);
+  border-radius: 3px;
+  margin: 20px;
+}
+
+.promo-page-single-content h1 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.promo-page-single-content > p > img {
+  display: block;
+  width: 40%;
+  float: left;
+  -webkit-box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.promo-page-single-content > p > img {
+  display: block;
+  width: 40%;
+  float: left;
+  -webkit-box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+  box-shadow: 1px 1px 20px 0 rgba(0, 0, 0, 0.4);
+  border-radius: 5px;
+}
+
+.promo-page-single-content .promo-banner-content h4 {
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  margin-bottom: 40px;
+}
+
+.promo-page-single-content .promo-banner-content h2 {
+  font-size: 16px;
+  line-height: 32px;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-top: 40px;
+}
+
+.promo-page-single-content .promo-banner-content a {
+  background: var(--accent-bg);
+  color: var(--accent-col);
+  font-size: 14px;
+  line-height: 20px;
+  padding: 8px;
+  border-radius: 3px;
+  display: block;
+  width: 150px;
+  text-align: center;
+  cursor: pointer;
+  margin-left: auto;
+}
+
+.promo-page-single-content h1 {
+  text-align: center;
+  font-size: 18px;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+body {
+  font-size: 14px;
+  line-height: 16px;
+  background-color: var(--baseBg);
+  color: var(--col1);
+}
+
+.promo-page-single-content .promo-banner-content a:hover {
+  opacity: 0.8;
+}
+
+.promotions-subcategories > h4 {
+  font-weight: 400;
+}
+
+.promo-page-single-content:nth-child(2n) > p > img {
+  float: right;
+}
+
+.promo-page-single-content:nth-child(2n) .promo-banner-content a {
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.promo-page-single-content:nth-child(2n) .promo-banner-content {
+  padding: 0 40% 20px 10px;
+}

@@ -1,6 +1,8 @@
-import React, { useRef } from "react";
+import React, { useRef, useState } from "react";
 import "./Games.scss";
 import Slider from "react-slick";
+import { useSelector, useDispatch } from "react-redux";
+import { decrement, increment, incrementByAmount, selectCount } from "../../features/counter/counterSlice";
 
 function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeFavoritedSlot }) {
   const settings = {
@@ -83,11 +85,36 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
   const GetId = Object.values(casinoData?.result?.categories || {});
   const Providers = Object.values(casinoData?.result?.categories || {});
 
+  const count = useSelector(selectCount);
+  const dispatch = useDispatch();
+  const [incrementAmount, setIncrementAmount] = useState("2");
+
   return !fav ? (
     <>
       <div className=" popular content-m ">
         <div className="popular-title">
           <span>Popular</span>
+          {/* <button
+            onClick={() => {
+              dispatch(increment());
+            }}
+          >
+            +
+          </button>
+          <button>{count}</button>
+          <button
+            onClick={() => {
+              dispatch(decrement());
+            }}
+          >
+            -
+          </button>
+          <input
+            aria-label="Set increment amount"
+            value={incrementAmount}
+            onChange={(e) => setIncrementAmount(e.target.value)}
+          />
+          <button onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}>Add Amount</button> */}
           <button
             onClick={() => {
               GetId.map((item) => {

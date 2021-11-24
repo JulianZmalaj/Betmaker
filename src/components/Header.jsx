@@ -155,9 +155,9 @@ class Header extends Component {
               <Link className="nav-item" to="/virtual">
                 Virutal games
               </Link>
-              <p className="nav-item" to="/bonus">
-                Bonus <span>{english ? "Coming Soon" : "Presto Online"}</span>
-              </p>
+              <Link className="nav-item" to="/bonus">
+                Bonus <span>{english ? "New" : "Nuovo"}</span>
+              </Link>
             </nav>
           </div>
         </div>
