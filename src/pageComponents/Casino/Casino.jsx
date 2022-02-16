@@ -101,13 +101,13 @@ function Casino({ sliders }) {
     setActive(item);
   };
 
-  const url = "https://testoffice.playlogiq.com/betbuq/get_slots/casino?platform=web&img=safari";
+  const url = "https://backoffice.playlogiq.com/Betmaker/get_slots/casino/ios?lang=en";
 
   const fetchApi = async () => {
     try {
       const response = await fetch(url);
-      const casinoData = await response.json();
-      setCasinoData(casinoData);
+      const data = await response.json();
+      setCasinoData(data);
       setLoadingCasino(false);
     } catch (error) {
       setLoadingCasino(false);

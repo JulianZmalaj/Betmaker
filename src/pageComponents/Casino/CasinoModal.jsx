@@ -168,7 +168,7 @@ export default class CasinoModal extends Component {
                           <>
                             <div className="gameContainer animate__animated animate__fadeIn" key={index}>
                               <div className="imageContainer">
-                                <img src={item.logo} alt="" />
+                                <img src={item.desktop_logo} alt="" />
                                 <div className="hover">
                                   <i className="fas fa-play-circle fa-3x"></i>
                                 </div>
@@ -219,7 +219,7 @@ export default class CasinoModal extends Component {
                         <>
                           <div className="gameContainer animate__animated animate__fadeIn" key={index}>
                             <div className="imageContainer">
-                              <img src={item.logo} alt="" />
+                              <img src={item.desktop_logo} alt="" />
                               <div className="hover">
                                 <i className="fas fa-play-circle fa-3x"></i>
                               </div>
@@ -257,7 +257,7 @@ export default class CasinoModal extends Component {
                           <>
                             <div className="gameContainer animate__animated animate__fadeIn" key={index}>
                               <div className="imageContainer">
-                                <img src={item.logo} alt="" />
+                                <img src={item.desktop_logo} alt="" />
                                 <div className="hover">
                                   <i className="fas fa-play-circle fa-3x"></i>
                                 </div>
@@ -317,7 +317,7 @@ export default class CasinoModal extends Component {
                           <>
                             <div className="gameContainer animate__animated animate__fadeIn" key={index}>
                               <div className="imageContainer">
-                                <img src={item.logo} alt="" />
+                                <img src={item.desktop_logo} alt="" />
                                 <div className="hover">
                                   <i className="fas fa-play-circle fa-3x"></i>
                                 </div>

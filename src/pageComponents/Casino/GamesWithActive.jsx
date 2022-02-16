@@ -94,13 +94,12 @@ function GamesWithActive({
               </div>
             </div>
             <div className="category-games">
-              {
-              sortActive.includes("1")
+              {sortActive.includes("1")
                 ? sortedSlotsName.map((item, index) => {
                     return (
                       <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
                         <div className="imageContainer">
-                          <img src={item.logo} alt="" />
+                          <img src={item.desktop_logo} alt="" />
                           <div className="hover">
                             <i className="fas fa-play-circle fa-3x"></i>
                           </div>
@@ -126,7 +125,7 @@ function GamesWithActive({
                     return (
                       <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
                         <div className="imageContainer">
-                          <img src={item.logo} alt="" />
+                          <img src={item.desktop_logo} alt="" />
                           <div className="hover">
                             <i className="fas fa-play-circle fa-3x"></i>
                           </div>
@@ -152,7 +151,7 @@ function GamesWithActive({
                     return (
                       <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
                         <div className="imageContainer">
-                          <img src={item.logo} alt="" />
+                          <img src={item.desktop_logo} alt="" />
                           <div className="hover">
                             <i className="fas fa-play-circle fa-3x"></i>
                           </div>
@@ -232,7 +231,7 @@ function GamesWithActive({
               return (
                 <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
                   <div className="imageContainer">
-                    <img src={item.logo} alt="" />
+                    <img src={item.desktop_logo} alt="" />
                     <div className="hover">
                       <i className="fas fa-play-circle fa-3x"></i>
                     </div>

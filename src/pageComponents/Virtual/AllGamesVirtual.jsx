@@ -20,7 +20,7 @@ function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeF
           return (
             <div className="virtual_container gameContainer animate__animated animate__fadeIn" key={item.id}>
               <div className="imageContainer">
-                <img src={item.logo} alt="" />
+                <img src={item.desktop_logo} alt="" />
                 <div className="hover">
                   <i className="fas fa-play-circle fa-3x"></i>
                 </div>
@@ -134,7 +134,7 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
                     return (
                       <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
                         <div className="imageContainer">
-                          <img src={item.logo} alt="" />
+                          <img src={item.desktop_logo} alt="" />
                           <div className="hover">
                             <i className="fas fa-play-circle fa-3x"></i>
                           </div>

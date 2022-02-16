@@ -100,7 +100,7 @@ function Casino({ sliders }) {
     setActive(item);
   };
 
-  const url = "https://testoffice.playlogiq.com/betbuq/get_slots/casino_live?platform=web&img=safari";
+  const url = "https://backoffice.playlogiq.com/Betmaker/get_slots/casino_live/ios?lang=en";
 
   const fetchApi = async () => {
     try {
