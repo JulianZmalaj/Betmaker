@@ -17,6 +17,7 @@ function SimpleSlider({ slideref, allGames, addFavoritedSlot, favorites, removeF
       {allGames
         .flat()
         .filter((slot) => Object.keys(slot.categories || {}).includes("55"))
+        .splice(0, 4)
         .map((item) => {
           return (
             <div className="gameContainer animate__animated animate__fadeIn" key={item.id}>
@@ -85,36 +86,12 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
   const GetId = Object.values(casinoData?.result?.categories || {});
   const Providers = Object.values(casinoData?.result?.categories || {});
 
-  const count = useSelector(selectCount);
-  const dispatch = useDispatch();
-  const [incrementAmount, setIncrementAmount] = useState("2");
-
   return !fav ? (
     <>
       <div className=" popular content-m ">
         <div className="popular-title">
           <span>Popular</span>
-          {/* <button
-            onClick={() => {
-              dispatch(increment());
-            }}
-          >
-            +
-          </button>
-          <button>{count}</button>
-          <button
-            onClick={() => {
-              dispatch(decrement());
-            }}
-          >
-            -
-          </button>
-          <input
-            aria-label="Set increment amount"
-            value={incrementAmount}
-            onChange={(e) => setIncrementAmount(e.target.value)}
-          />
-          <button onClick={() => dispatch(incrementByAmount(Number(incrementAmount) || 0))}>Add Amount</button> */}
+
           <button
             onClick={() => {
               GetId.map((item) => {
@@ -132,8 +109,9 @@ function Games({ toggleActive, allGames, casinoData, addFavoritedSlot, favorites
         <div className="popular--games">
           {(allGames.flat() || [])
             .filter((slot) => {
-              return Object.keys(slot.categories || {}).includes("40") ? true : false;
+              return slot.popularity ? true : false;
             })
+            .sort((a, b) => (a.popularity < b.popularity ? 1 : -1))
             .splice(0, 12)
             .map((item) => {
               return (

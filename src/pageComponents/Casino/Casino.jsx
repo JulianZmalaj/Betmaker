@@ -96,7 +96,6 @@ function Casino({ sliders }) {
   };
 
   const allGames = Object.values(casinoData?.result?.providers || {}).map((provider) => provider.slots);
-
   const toggleActive = (item) => {
     setActive(item);
   };
